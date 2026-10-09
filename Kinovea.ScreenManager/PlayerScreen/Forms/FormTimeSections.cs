@@ -23,7 +23,7 @@ namespace Kinovea.ScreenManager
     /// - On "OK" we push the memento to the history stack to enable "undo" of all the changes
     /// that happened during the dialog.
     /// </summary>
-    public partial class FormTimeSections : Form
+    public partial class FormTimeSections : Kinovea.Services.ThemedForm
     {
         private DrawingChronoMulti drawing;
         private HistoryMementoModifyDrawing memento;

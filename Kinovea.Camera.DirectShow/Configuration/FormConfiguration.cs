@@ -31,7 +31,7 @@ using Kinovea.Camera.Languages;
 
 namespace Kinovea.Camera.DirectShow
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         public bool AliasChanged
         {

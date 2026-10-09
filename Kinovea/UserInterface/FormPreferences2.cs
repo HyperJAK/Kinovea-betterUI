@@ -33,7 +33,7 @@ namespace Kinovea.Root
     /// Preferences pages are UserControl conforming to a IPreferencePanel interface.
     /// Each preference page contains one or more tabs.
     /// </summary>
-    public partial class FormPreferences2 : Form
+    public partial class FormPreferences2 : Kinovea.Services.ThemedForm
     {
         #region Members
         private List<UserControl> pages = new List<UserControl>();

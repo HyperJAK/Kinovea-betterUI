@@ -345,6 +345,7 @@
     <Compile Include="Types\TimecodeType.cs" />
     <Compile Include="ThreePartsVersion.cs" />
     <Compile Include="TimeHelper.cs" />
+    <Compile Include="WinForms\DarkTheme.cs" />
     <Compile Include="WinForms\NudHelper.cs" />
     <Compile Include="WinForms\TextHelper.cs" />
     <Compile Include="WinForms\TextboxHotkey.cs">

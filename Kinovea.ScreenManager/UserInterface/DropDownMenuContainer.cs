@@ -29,7 +29,7 @@ namespace Kinovea.ScreenManager
     /// A container for drop down menu items.
     /// Used in the context of ToolStripButtonWithDropDown, which is a replacement for ToolStripSplitButton.
     /// </summary>
-    public partial class DropDownMenuContainer : Form
+    public partial class DropDownMenuContainer : Kinovea.Services.ThemedForm
     {
         public ToolStripItemCollection Items {
             get { return contextMenuStrip.Items; }

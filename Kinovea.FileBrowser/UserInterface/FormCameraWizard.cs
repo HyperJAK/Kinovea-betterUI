@@ -29,7 +29,7 @@ using Kinovea.FileBrowser.Languages;
 
 namespace Kinovea.FileBrowser
 {
-    public partial class FormCameraWizard : Form
+    public partial class FormCameraWizard : Kinovea.Services.ThemedForm
     {
         public CameraSummary Result
         {

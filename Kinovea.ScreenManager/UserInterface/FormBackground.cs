@@ -21,7 +21,7 @@ namespace Kinovea.ScreenManager
     /// to provide immediate feedback. The caller must backup the original value before starting this dialog, 
     /// and restore it if the dialog result is cancel.
     /// </summary>
-    public partial class FormBackgroundColor : Form
+    public partial class FormBackgroundColor : Kinovea.Services.ThemedForm
     {
         private Control surfaceScreen;
         private Metadata metadata;

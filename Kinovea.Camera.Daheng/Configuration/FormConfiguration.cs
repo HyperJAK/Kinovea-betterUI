@@ -30,7 +30,7 @@ using GxIAPINET;
 
 namespace Kinovea.Camera.Daheng
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         public bool AliasChanged
         {

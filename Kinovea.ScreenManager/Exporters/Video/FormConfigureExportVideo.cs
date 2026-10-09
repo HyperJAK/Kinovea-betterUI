@@ -13,7 +13,7 @@ using Kinovea.Video;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormConfigureExportVideo : Form
+    public partial class FormConfigureExportVideo : Kinovea.Services.ThemedForm
     {
         /// <summary>
         /// Whether to take slow motion into account for the output frame rate.

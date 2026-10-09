@@ -20,7 +20,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Plot page for combining multiple trajectories on a single plot.
     /// </summary>
-    public partial class FormMultiTrajectoryAnalysis : Form
+    public partial class FormMultiTrajectoryAnalysis : Kinovea.Services.ThemedForm
     {
         private Metadata metadata;
         private List<TimeSeriesPlotData> timeSeriesData = new List<TimeSeriesPlotData>();

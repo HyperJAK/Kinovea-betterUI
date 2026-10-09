@@ -31,7 +31,7 @@ namespace Kinovea.ScreenManager
     /// FormColorPicker. Let the user choose a color.
     /// The color picker control itself is based on the one from Greenshot. 
     /// </summary>
-    public partial class FormColorPicker : Form
+    public partial class FormColorPicker : Kinovea.Services.ThemedForm
     {
         #region Properties
         public Color PickedColor

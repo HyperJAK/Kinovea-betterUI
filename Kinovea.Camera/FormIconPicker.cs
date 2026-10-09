@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
 namespace Kinovea.Camera
 {
-    public partial class FormIconPicker : Form
+    public partial class FormIconPicker : Kinovea.Services.ThemedForm
     {
         public Bitmap PickedIcon
         {

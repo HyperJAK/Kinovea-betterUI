@@ -15,7 +15,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Form to export the Kinogram to an image.
     /// </summary>
-    public partial class FormExportKinogram : Form
+    public partial class FormExportKinogram : Kinovea.Services.ThemedForm
     {
 
         private VideoFilterKinogram kinogram;

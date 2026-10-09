@@ -16,7 +16,7 @@ namespace Kinovea.Root
     /// <summary>
     /// Form to start, delete and inspect the existing windows.
     /// </summary>
-    public partial class FormWindowManager : Form
+    public partial class FormWindowManager : Kinovea.Services.ThemedForm
     {
         #region Private types
         private enum InstanceStatus

@@ -20,7 +20,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Plot page for angle-angle diagrams.
     /// </summary>
-    public partial class FormAngleAngleAnalysis : Form
+    public partial class FormAngleAngleAnalysis : Kinovea.Services.ThemedForm
     {
         private Metadata metadata;
         private List<TimeSeriesPlotData> timeSeriesData = new List<TimeSeriesPlotData>();

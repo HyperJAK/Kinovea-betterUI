@@ -6,7 +6,7 @@ using Kinovea.ScreenManager.Languages;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormWorkspaceName : Form
+    public partial class FormWorkspaceName : Kinovea.Services.ThemedForm
     {
         public string WorkspaceName
         { 

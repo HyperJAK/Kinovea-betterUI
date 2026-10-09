@@ -29,7 +29,7 @@ using System.IO;
 
 namespace Kinovea.Camera.IDS
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         public bool AliasChanged
         {

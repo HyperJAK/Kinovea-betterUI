@@ -20,7 +20,7 @@ namespace Kinovea.ScreenManager
     /// - In case of cancel or close we perform an undo manually from here.
     /// - In case of OK we commit the original state to the undo stack.
     /// </summary>
-    public partial class FormConfigureKinogram : Form
+    public partial class FormConfigureKinogram : Kinovea.Services.ThemedForm
     {
         #region Members
         private VideoFilterKinogram kinogram;

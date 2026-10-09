@@ -19,7 +19,7 @@ namespace Kinovea.Root
     /// <summary>
     /// Form create and delete workspaces.
     /// </summary>
-    public partial class FormWorkspaceManager : Form
+    public partial class FormWorkspaceManager : Kinovea.Services.ThemedForm
     {
         #region Private types
         private class ListViewWindowDescriptor

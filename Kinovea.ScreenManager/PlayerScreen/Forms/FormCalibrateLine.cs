@@ -35,7 +35,7 @@ namespace Kinovea.ScreenManager
     /// This dialog lets the user specify a mapping between pixels (undistorted) and real world units.
     /// This type of calibration assumes all points are on the same plane, orthogonal to the camera optical axis.
     /// </summary>
-    public partial class FormCalibrateLine : Form
+    public partial class FormCalibrateLine : Kinovea.Services.ThemedForm
     {
         #region Members
         private CalibrationHelper calibrationHelper;

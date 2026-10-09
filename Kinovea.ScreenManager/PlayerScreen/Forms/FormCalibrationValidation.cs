@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +14,7 @@ using System.Globalization;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormCalibrationValidation : Form
+    public partial class FormCalibrationValidation : Kinovea.Services.ThemedForm
     {
         #region Members
         private Metadata metadata;

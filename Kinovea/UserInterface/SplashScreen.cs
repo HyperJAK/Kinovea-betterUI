@@ -24,7 +24,7 @@ using System.Windows.Forms;
 
 namespace Kinovea.Root
 {
-    public partial class FormSplashScreen : Form
+    public partial class FormSplashScreen : Kinovea.Services.ThemedForm
     {
         public FormSplashScreen()
         {

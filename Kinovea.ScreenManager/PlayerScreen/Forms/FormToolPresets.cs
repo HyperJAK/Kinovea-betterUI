@@ -33,7 +33,7 @@ namespace Kinovea.ScreenManager
     /// Modifications done on the current presets, reload from file to revert.
     /// Replaces FormColorProfile.
     /// </summary>
-    public partial class FormToolPresets : Form
+    public partial class FormToolPresets : Kinovea.Services.ThemedForm
     {
         #region Members
         private bool manualClose;

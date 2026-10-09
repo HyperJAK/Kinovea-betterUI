@@ -29,7 +29,7 @@ using Kinovea.Camera.Languages;
 
 namespace Kinovea.Camera.HTTP
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         public bool AliasChanged
         {

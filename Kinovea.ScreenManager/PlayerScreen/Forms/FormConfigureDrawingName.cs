@@ -31,7 +31,7 @@ namespace Kinovea.ScreenManager
     /// Dialog to change the name of a specfiic drawing.
     /// Works on the original and revert to a copy in case of cancel.
     /// </summary>
-    public partial class FormConfigureDrawingName : Form
+    public partial class FormConfigureDrawingName : Kinovea.Services.ThemedForm
     {
         #region Members
         private AbstractDrawing drawing;
