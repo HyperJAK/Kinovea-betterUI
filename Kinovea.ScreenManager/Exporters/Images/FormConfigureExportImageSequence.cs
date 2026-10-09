@@ -12,7 +12,7 @@ using Kinovea.Video;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormConfigureExportImageSequence : Form
+    public partial class FormConfigureExportImageSequence : Kinovea.Services.ThemedForm
     {
         /// <summary>
         /// Frame interval to export at, in timestamps.
@@ -27,38 +27,45 @@ namespace Kinovea.ScreenManager
         /// </summary>
         public int RemainingFrames
         {
-            get { return (int)Math.Round((float)totalFrames / decimationFrames); }
+            get { return 1 + (totalFrames - 1) / decimationFrames; }
         }
 
 
-        private PlayerScreen player;
-        private Metadata metadata;
         private VideoInfo videoInfo;
         private int totalFrames;
-        private int decimationFrames = 1; // Denominator of the decimation (1 frame every n).
-        private int maxDecimationFrames;
+        private int decimationFrames = 1;
         private double frameInterval;
-        private List<int> values = new List<int>();
-        private const int defaultDecimationFrames = 10;
-        private const int limitDecimationFrames = 500;
+        private NumericUpDown intervalInput;
 
         public FormConfigureExportImageSequence(PlayerScreen player)
         {
-            this.player = player;
-            this.metadata = player.FrameServer.Metadata;
-            this.videoInfo = player.FrameServer.VideoReader.Info;
+            var metadata = player.FrameServer.Metadata;
+            videoInfo = player.FrameServer.VideoReader.Info;
             frameInterval = metadata.BaselineFrameInterval;
-            totalFrames = (int)((metadata.SelectionEnd - metadata.SelectionStart) / metadata.AverageTimeStampsPerFrame) + 1;
-            maxDecimationFrames = totalFrames / 2;
-            maxDecimationFrames = Math.Min(limitDecimationFrames, maxDecimationFrames);
-
-            decimationFrames = 1;
+            totalFrames = Math.Max(1, (int)((metadata.SelectionEnd - metadata.SelectionStart) / metadata.AverageTimeStampsPerFrame) + 1);
 
             InitializeComponent();
             InitializeCulture();
-            Populate();
+            trkDecimate.Visible = false;
+            intervalInput = new NumericUpDown
+            {
+                Minimum = 1,
+                Maximum = totalFrames,
+                Value = 1,
+                Location = new Point(25, 40),
+                Size = new Size(140, 28),
+                TabIndex = 0,
+                ThousandsSeparator = true,
+                AccessibleName = ScreenManagerLang.formConfigureExport_ImageSequence
+            };
+            intervalInput.ValueChanged += (sender, args) =>
+            {
+                decimationFrames = (int)intervalInput.Value;
+                UpdateLabels();
+            };
+            grpboxConfig.Controls.Add(intervalInput);
+            UpdateLabels();
         }
-
         private void InitializeCulture()
         {
             this.Text = ScreenManagerLang.formConfigureExport_ImageSequence;
@@ -68,33 +75,9 @@ namespace Kinovea.ScreenManager
             btnCancel.Text = ScreenManagerLang.Generic_Cancel;
         }
 
-        private void Populate()
-        {
-            // Build a list of values that actually produce a different result.
-            values.Clear();
-            int lastFrames = 0;
-            int indexOfDefault = 0;
-            for (int i = 1; i < maxDecimationFrames; i++)
-            {
-                int frames = (int)Math.Round((float)totalFrames / i);
-                if (frames == lastFrames)
-                    continue;
-
-                lastFrames = frames;
-                values.Add(i);
-                if (i >= defaultDecimationFrames && indexOfDefault == 0)
-                    indexOfDefault = values.Count - 1;
-            }
-
-            trkDecimate.Minimum = 0;
-            trkDecimate.Maximum = values.Count - 1;
-            trkDecimate.Value = indexOfDefault;
-            decimationFrames = values[indexOfDefault];
-        }
-
         private void UpdateLabels()
         {
-            int remainingFrames = (int)Math.Round((float)totalFrames / decimationFrames);
+            int remainingFrames = RemainingFrames;
 
             if (decimationFrames == 1)
                 lblFrameDecimation.Text = ScreenManagerLang.dlgRafaleExport_ExportAll;
@@ -117,7 +100,7 @@ namespace Kinovea.ScreenManager
 
         private void trkDecimate_ValueChanged(object sender, EventArgs e)
         {
-            decimationFrames = values[trkDecimate.Value];
+            // Retained for the designer; exact intervals use intervalInput.
             UpdateLabels();
         }
 
