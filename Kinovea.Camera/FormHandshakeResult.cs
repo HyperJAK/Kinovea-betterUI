@@ -26,7 +26,7 @@ using Kinovea.Camera.Languages;
 
 namespace Kinovea.Camera
 {
-    public partial class FormHandshakeResult : Form
+    public partial class FormHandshakeResult : Kinovea.Services.ThemedForm
     {
         public FormHandshakeResult(Bitmap bitmap)
         {

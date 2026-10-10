@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpDistortionCoefficients = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpDistortionCoefficients = new Kinovea.Services.FluentGroupBox();
       this.nudP2 = new System.Windows.Forms.NumericUpDown();
       this.nudP1 = new System.Windows.Forms.NumericUpDown();
       this.nudK3 = new System.Windows.Forms.NumericUpDown();
@@ -41,7 +41,7 @@
       this.lblK2 = new System.Windows.Forms.Label();
       this.lblK1 = new System.Windows.Forms.Label();
       this.nudK1 = new System.Windows.Forms.NumericUpDown();
-      this.grpIntrinsics = new System.Windows.Forms.GroupBox();
+      this.grpIntrinsics = new Kinovea.Services.FluentGroupBox();
       this.nudFocalLength = new System.Windows.Forms.NumericUpDown();
       this.lblFocalLength = new System.Windows.Forms.Label();
       this.nudSensorWidth = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +60,7 @@
       this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
       this.mnuDefault = new System.Windows.Forms.ToolStripMenuItem();
       this.mnuQuit = new System.Windows.Forms.ToolStripMenuItem();
-      this.grpAppearance = new System.Windows.Forms.GroupBox();
+      this.grpAppearance = new Kinovea.Services.FluentGroupBox();
       this.pnlPreview = new Kinovea.ScreenManager.PanelDoubleBuffer();
       this.grpDistortionCoefficients.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudP2)).BeginInit();

@@ -48,7 +48,7 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnDirectoryLocation = new System.Windows.Forms.Button();
+      this.btnDirectoryLocation = new Kinovea.Services.FluentButton();
       this.tbFilename = new System.Windows.Forms.TextBox();
       this.lblFilename = new System.Windows.Forms.Label();
       this.SuspendLayout();

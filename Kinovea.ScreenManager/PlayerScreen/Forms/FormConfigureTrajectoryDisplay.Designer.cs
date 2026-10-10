@@ -28,12 +28,12 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpAppearance = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpAppearance = new Kinovea.Services.FluentGroupBox();
       this.tbLabel = new System.Windows.Forms.TextBox();
-      this.grpIdentification = new System.Windows.Forms.GroupBox();
-      this.grpTracking = new System.Windows.Forms.GroupBox();
+      this.grpIdentification = new Kinovea.Services.FluentGroupBox();
+      this.grpTracking = new Kinovea.Services.FluentGroupBox();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.tbSearchHeight = new System.Windows.Forms.TextBox();

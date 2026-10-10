@@ -49,16 +49,16 @@ namespace Kinovea.ScreenManager
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            this.btnDefault = new System.Windows.Forms.Button();
-            this.btnSaveProfile = new System.Windows.Forms.Button();
-            this.btnLoadProfile = new System.Windows.Forms.Button();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnToolIcon = new System.Windows.Forms.Button();
+            this.btnDefault = new Kinovea.Services.FluentButton();
+            this.btnSaveProfile = new Kinovea.Services.FluentButton();
+            this.btnLoadProfile = new Kinovea.Services.FluentButton();
+            this.btnApply = new Kinovea.Services.FluentButton();
+            this.btnCancel = new Kinovea.Services.FluentButton();
+            this.btnToolIcon = new Kinovea.Services.FluentButton();
             this.lblToolName = new System.Windows.Forms.Label();
-            this.grpConfig = new System.Windows.Forms.GroupBox();
+            this.grpConfig = new Kinovea.Services.FluentGroupBox();
             this.lblFirstElement = new System.Windows.Forms.Label();
-            this.btnFirstElement = new System.Windows.Forms.Button();
+            this.btnFirstElement = new Kinovea.Services.FluentButton();
             this.toolTips = new System.Windows.Forms.ToolTip(this.components);
             this.lvPresets = new System.Windows.Forms.ListView();
             this.iconList = new System.Windows.Forms.ImageList(this.components);

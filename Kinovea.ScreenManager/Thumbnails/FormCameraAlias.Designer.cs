@@ -50,12 +50,12 @@ namespace Kinovea.ScreenManager
         {
       this.lblAlias = new System.Windows.Forms.Label();
       this.lblIcon = new System.Windows.Forms.Label();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.tbAlias = new System.Windows.Forms.TextBox();
-      this.btnIcon = new System.Windows.Forms.Button();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.btnReset = new System.Windows.Forms.Button();
+      this.btnIcon = new Kinovea.Services.FluentButton();
+      this.groupBox1 = new Kinovea.Services.FluentGroupBox();
+      this.btnReset = new Kinovea.Services.FluentButton();
       this.groupBox1.SuspendLayout();
       this.SuspendLayout();
       // 

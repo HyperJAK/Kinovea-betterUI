@@ -30,7 +30,7 @@ namespace Kinovea.ScreenManager
         private void InitializeComponent()
         {
       this.lblPatternSize = new System.Windows.Forms.Label();
-      this.grpConfig = new System.Windows.Forms.GroupBox();
+      this.grpConfig = new Kinovea.Services.FluentGroupBox();
       this.lblMaxIterations = new System.Windows.Forms.Label();
       this.nudMaxIterations = new System.Windows.Forms.NumericUpDown();
       this.label2 = new System.Windows.Forms.Label();
@@ -38,8 +38,8 @@ namespace Kinovea.ScreenManager
       this.nudRows = new System.Windows.Forms.NumericUpDown();
       this.nudCols = new System.Windows.Forms.NumericUpDown();
       this.lblMaxImages = new System.Windows.Forms.Label();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.grpConfig.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudMaxIterations)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudMaxImages)).BeginInit();

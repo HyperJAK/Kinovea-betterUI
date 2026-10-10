@@ -50,10 +50,10 @@ namespace Kinovea.FileBrowser
         {
             this.lblCameraType = new System.Windows.Forms.Label();
             this.cbCameraType = new System.Windows.Forms.ComboBox();
-            this.gpParameters = new System.Windows.Forms.GroupBox();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
+            this.gpParameters = new Kinovea.Services.FluentGroupBox();
+            this.btnApply = new Kinovea.Services.FluentButton();
+            this.btnCancel = new Kinovea.Services.FluentButton();
+            this.btnTest = new Kinovea.Services.FluentButton();
             this.SuspendLayout();
             // 
             // lblCameraType

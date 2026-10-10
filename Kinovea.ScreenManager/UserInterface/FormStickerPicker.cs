@@ -31,7 +31,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Sticker picker.
     /// </summary>
-    public partial class FormStickerPicker : Form
+    public partial class FormStickerPicker : Kinovea.Services.ThemedForm
     {
         #region Properties
         public string PickedStickerRef

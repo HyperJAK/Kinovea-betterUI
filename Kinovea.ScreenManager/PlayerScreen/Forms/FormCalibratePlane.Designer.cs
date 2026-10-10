@@ -49,7 +49,7 @@ namespace Kinovea.ScreenManager
         private void InitializeComponent()
         {
       this.components = new System.ComponentModel.Container();
-      this.grpConfig = new System.Windows.Forms.GroupBox();
+      this.grpConfig = new Kinovea.Services.FluentGroupBox();
       this.nudB = new System.Windows.Forms.NumericUpDown();
       this.nudA = new System.Windows.Forms.NumericUpDown();
       this.lblPrecision = new System.Windows.Forms.Label();
@@ -57,10 +57,10 @@ namespace Kinovea.ScreenManager
       this.label1 = new System.Windows.Forms.Label();
       this.cbUnit = new System.Windows.Forms.ComboBox();
       this.lblRealSize = new System.Windows.Forms.Label();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.pnlQuadrilateral = new System.Windows.Forms.Panel();
-      this.grpCoordinates = new System.Windows.Forms.GroupBox();
+      this.grpCoordinates = new Kinovea.Services.FluentGroupBox();
       this.nudDecimalPlaces = new System.Windows.Forms.NumericUpDown();
       this.lblDecimalPlaces = new System.Windows.Forms.Label();
       this.nudOffsetY = new System.Windows.Forms.NumericUpDown();
@@ -69,9 +69,9 @@ namespace Kinovea.ScreenManager
       this.label2 = new System.Windows.Forms.Label();
       this.lblOffsetHelp = new System.Windows.Forms.Label();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-      this.btnRotate90 = new System.Windows.Forms.Button();
-      this.btnFlipY = new System.Windows.Forms.Button();
-      this.btnFlipX = new System.Windows.Forms.Button();
+      this.btnRotate90 = new Kinovea.Services.FluentButton();
+      this.btnFlipY = new Kinovea.Services.FluentButton();
+      this.btnFlipX = new Kinovea.Services.FluentButton();
       this.grpConfig.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudB)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudA)).BeginInit();

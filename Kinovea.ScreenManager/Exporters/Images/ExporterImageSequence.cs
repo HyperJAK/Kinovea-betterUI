@@ -11,6 +11,8 @@ using System.ComponentModel;
 using Kinovea.Video;
 using Kinovea.Services;
 using System.Drawing.Imaging;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Kinovea.ScreenManager
 {
@@ -38,6 +40,7 @@ namespace Kinovea.ScreenManager
         {
             // Setup global variables we'll use from inside the background thread.
             this.player = player;
+            settings.RenderingSize = player.FrameServer.VideoReader.Geometry.ReferenceSize;
 
             // Start the background worker.
             formProgressBar.Reset();
@@ -69,10 +72,14 @@ namespace Kinovea.ScreenManager
             PreferencesManager.PlayerPreferences.ImageFormat = FilesystemHelper.GetImageFormat(s.File);
             
             int i = 0;
+            Stopwatch progressTimer = Stopwatch.StartNew();
             foreach (var image in images)
             {
                 if (worker.CancellationPending)
+                {
+                    e.Cancel = true;
                     break;
+                }
 
                 // The timestamp should be stored in the Bitmap.Tag.
                 long timestamp = 0;
@@ -85,8 +92,14 @@ namespace Kinovea.ScreenManager
                 ImageHelper.Save(filePath, image);
 
                 i++;
-                worker.ReportProgress(i, s.TotalFrameCount);
+                // At most ten UI updates per second, even when exporting every frame.
+                if (progressTimer.ElapsedMilliseconds >= 100)
+                {
+                    worker.ReportProgress(i, s.TotalFrameCount);
+                    progressTimer.Restart();
+                }
             }
+            worker.ReportProgress(i, s.TotalFrameCount);
         }
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -108,6 +121,12 @@ namespace Kinovea.ScreenManager
             player.view.AfterExportVideo();
             player.FrameServer.AfterSave();
 
+            if (e.Error != null)
+            {
+                log.Error("Image sequence export failed.", e.Error);
+                MessageBox.Show(e.Error.Message, "Image sequence export", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             // Return to the start of the zone.
             //m_iFramesToDecode = 1;
             //ShowNextFrame(m_iSelStart, true);
@@ -119,5 +138,7 @@ namespace Kinovea.ScreenManager
             // Turn the CancellationPending flag on.
             worker.CancelAsync();
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ExporterImageSequence));
     }
 }

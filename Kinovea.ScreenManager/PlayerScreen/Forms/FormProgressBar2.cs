@@ -32,7 +32,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// A simple dialog wrapping a progress bar and a background worker.
     /// </summary>
-    public partial class formProgressBar2 : Form
+    public partial class formProgressBar2 : Kinovea.Services.ThemedForm
     {
         #region Properties
         public bool Cancelled { get; set; } = false;

@@ -30,7 +30,7 @@ using Kinovea.Services;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormCalibratePlane : Form
+    public partial class FormCalibratePlane : Kinovea.Services.ThemedForm
     {
         private CalibrationHelper calibrationHelper;
         private DrawingPlane drawingPlane;

@@ -287,6 +287,7 @@ namespace Kinovea.Root
             CheckTimecodeMenu();
             
             toolOpenFile.ToolTipText = ScreenManagerLang.mnuOpenVideo;
+            toolOpenFile.Text = ScreenManagerLang.mnuOpenVideo;
             
             if (subModules)
             {
@@ -532,9 +533,10 @@ namespace Kinovea.Root
         private void GetModuleToolBar(ToolStrip toolbar)
         {
             // Open.
-            toolOpenFile.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolOpenFile.Image = Properties.Resources.folder;
+            toolOpenFile.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+            toolOpenFile.Image = FluentIcons.Get(FluentIcon.Open);
             toolOpenFile.ToolTipText = ScreenManagerLang.mnuOpenVideo;
+            toolOpenFile.Text = ScreenManagerLang.mnuOpenVideo;
             toolOpenFile.Click += new EventHandler(mnuOpenFileOnClick);
             
             toolbar.Items.Add(toolOpenFile);

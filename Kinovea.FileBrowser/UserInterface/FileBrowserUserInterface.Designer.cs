@@ -30,19 +30,19 @@ namespace Kinovea.FileBrowser
         {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileBrowserUserInterface));
-      this.tabControl = new System.Windows.Forms.TabControl();
+      this.tabControl = new Kinovea.Services.FluentTabControl();
       this.tabPageClassic = new System.Windows.Forms.TabPage();
       this.splitExplorerFiles = new System.Windows.Forms.SplitContainer();
-      this.btnAddFavorite = new System.Windows.Forms.Button();
+      this.btnAddFavorite = new Kinovea.Services.FluentButton();
       this.tvExplorer = new Kinovea.FileBrowser.BufferedTreeView();
       this.lvExplorer = new System.Windows.Forms.ListView();
       this.imgListFiles = new System.Windows.Forms.ImageList(this.components);
       this.tabPageCameras = new System.Windows.Forms.TabPage();
-      this.btnCameraRefresh = new System.Windows.Forms.Button();
+      this.btnCameraRefresh = new Kinovea.Services.FluentButton();
       this.olvCameras = new BrightIdeasSoftware.ObjectListView();
       this.lvCaptured = new System.Windows.Forms.ListView();
       this.lblCaptureHistory = new System.Windows.Forms.Label();
-      this.btnManual = new System.Windows.Forms.Button();
+      this.btnManual = new Kinovea.Services.FluentButton();
       this.imgListTabs = new System.Windows.Forms.ImageList(this.components);
       this.ttTabs = new System.Windows.Forms.ToolTip(this.components);
       this.tabControl.SuspendLayout();

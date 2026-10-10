@@ -33,7 +33,7 @@ using System.Linq;
 
 namespace Kinovea.Camera.GenICam
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         #region Properties
         public bool AliasChanged

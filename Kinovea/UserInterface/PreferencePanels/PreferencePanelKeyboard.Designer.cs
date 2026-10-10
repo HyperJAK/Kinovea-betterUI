@@ -31,15 +31,15 @@ namespace Kinovea.Root
         private void InitializeComponent()
         {
       this.lbCategories = new System.Windows.Forms.ListBox();
-      this.btnApply = new System.Windows.Forms.Button();
+      this.btnApply = new Kinovea.Services.FluentButton();
       this.lblHotkey = new System.Windows.Forms.Label();
-      this.btnClear = new System.Windows.Forms.Button();
+      this.btnClear = new Kinovea.Services.FluentButton();
       this.lblCategories = new System.Windows.Forms.Label();
       this.lblCommands = new System.Windows.Forms.Label();
       this.lvCommands = new System.Windows.Forms.ListView();
       this.colCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.colKey = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.btnDefault = new System.Windows.Forms.Button();
+      this.btnDefault = new Kinovea.Services.FluentButton();
       this.tbHotkey = new Kinovea.Services.TextboxHotkey();
       this.SuspendLayout();
       // 

@@ -20,7 +20,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Plot page for multiple-source angular kinematics.
     /// </summary>
-    public partial class FormAngularAnalysis : Form
+    public partial class FormAngularAnalysis : Kinovea.Services.ThemedForm
     {
         private Metadata metadata;
         private List<TimeSeriesPlotData> timeSeriesData = new List<TimeSeriesPlotData>();

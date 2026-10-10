@@ -36,7 +36,7 @@ namespace Kinovea.ScreenManager
     /// All or nothing : either all projects are recovered or none.
     /// No second chance, once discarded, the recoverable projects are deleted for good.
     /// </summary>
-    public partial class FormCrashRecovery : Form
+    public partial class FormCrashRecovery : Kinovea.Services.ThemedForm
     {
         private List<ScreenDescriptorPlayback> recoverables = new List<ScreenDescriptorPlayback>();
         

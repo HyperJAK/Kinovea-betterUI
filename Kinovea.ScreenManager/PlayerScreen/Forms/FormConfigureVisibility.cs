@@ -15,7 +15,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Dialog to configure custom fading options.
     /// </summary>
-    public partial class FormConfigureVisibility : Form
+    public partial class FormConfigureVisibility : Kinovea.Services.ThemedForm
     {
         private Control viewport;
         private AbstractDrawing drawing;

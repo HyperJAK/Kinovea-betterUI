@@ -34,8 +34,8 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRight = new System.Windows.Forms.Button();
-            this.btnLeft = new System.Windows.Forms.Button();
+            this.btnRight = new Kinovea.Services.FluentButton();
+            this.btnLeft = new Kinovea.Services.FluentButton();
             this.SuspendLayout();
             // 
             // btnRight

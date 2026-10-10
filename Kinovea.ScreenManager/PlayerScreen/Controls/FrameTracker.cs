@@ -173,9 +173,6 @@ namespace Kinovea.ScreenManager
 
         private bool enabled = true;
         private bool isCommonTimeline;
-        private Bitmap bmpGutterLeft = Resources.gutter_left;
-        private Bitmap bmpGutterRight = Resources.gutter_right;
-        private Bitmap bmpGutterCenter = Resources.gutter_center;
         
         #region Markers handling
         private Metadata metadata;
@@ -206,7 +203,7 @@ namespace Kinovea.ScreenManager
         private static readonly Color colorSeek = Color.Crimson;
 
         // Standard colors.
-        private static readonly Color colorPlayHead = Color.FromArgb(20, 161, 80);
+        private static readonly Color colorPlayHead = DarkTheme.Accent;
         private static readonly Pen penPlayHead = new Pen(colorPlayHead);
         private static readonly Pen penFrameTick = Pens.LightGray;
         private static readonly SolidBrush brushPlayHead = new SolidBrush(colorPlayHead);
@@ -459,11 +456,9 @@ namespace Kinovea.ScreenManager
         private void Draw(Graphics canvas)
         {
             // Draw the gutter.
-            int gutterCenterStart = gutterMargin + bmpGutterLeft.Width;
-            int gutterCenterWidth = this.Width - (gutterMargin * 2 + bmpGutterLeft.Width + bmpGutterRight.Width);
-            canvas.DrawImageUnscaled(bmpGutterLeft, gutterMargin, 0);
-            canvas.DrawImageUnscaled(bmpGutterRight, gutterCenterStart + gutterCenterWidth - 4, 0);
-            canvas.DrawImage(bmpGutterCenter, gutterCenterStart, 0, gutterCenterWidth, bmpGutterCenter.Height);
+            using (SolidBrush gutterBrush = new SolidBrush(DarkTheme.Raised))
+                canvas.FillRectangle(gutterBrush, gutterMargin, gutterTop,
+                    Math.Max(0, Width - gutterMargin * 2), gutterHeight);
 
             if(!enabled)
                 return;

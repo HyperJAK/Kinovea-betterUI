@@ -93,6 +93,7 @@ namespace Kinovea.ScreenManager
         private ToolStripMenuItem mnuExportImageImage = new ToolStripMenuItem();
         private ToolStripMenuItem mnuExportImageKeys = new ToolStripMenuItem();
         private ToolStripMenuItem mnuExportImageSequence = new ToolStripMenuItem();
+        private ToolStripButton toolExportFrames = new ToolStripButton();
         private ToolStripMenuItem mnuExportImageSideBySide = new ToolStripMenuItem();
 
         private ToolStripMenuItem mnuExportSpreadsheet = new ToolStripMenuItem();
@@ -748,40 +749,45 @@ namespace Kinovea.ScreenManager
         public void ExtendToolBar(ToolStrip toolbar)
         {
             // Save
-            toolSave.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolSave.Image = Properties.Resources.save_annotations;
+            toolSave.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+            toolSave.Image = FluentIcons.Get(FluentIcon.Save);
             toolSave.Click += mnuSaveOnClick;
+            toolExportFrames.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+            toolExportFrames.Image = FluentIcons.Get(FluentIcon.Frames);
+            toolExportFrames.Enabled = false;
+            toolExportFrames.Click += (sender, args) => ExportImages(ImageExportFormat.ImageSequence);
 
             toolToggleNavigationPane.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolToggleNavigationPane.Image = Properties.Resources.navigation_pane;
+            toolToggleNavigationPane.Image = FluentIcons.Get(FluentIcon.Library);
             toolToggleNavigationPane.Click += toolToggleNavigationPanel_Click;
 
             toolExplorer.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolExplorer.Image = Properties.Resources.file_browser;
+            toolExplorer.Image = FluentIcons.Get(FluentIcon.Open);
             toolExplorer.Click += mnuExplorer_OnClick;
 
             toolOnePlayer.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolOnePlayer.Image = Properties.Resources.television;
+            toolOnePlayer.Image = FluentIcons.Get(FluentIcon.Video);
             toolOnePlayer.Click += mnuOnePlayerOnClick;
 
             toolTwoPlayers.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolTwoPlayers.Image = Properties.Resources.dualplayback;
+            toolTwoPlayers.Image = FluentIcons.Get(FluentIcon.Compare);
             toolTwoPlayers.Click += mnuTwoPlayersOnClick;
 
             toolOneCapture.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolOneCapture.Image = Properties.Resources.camera_video;
+            toolOneCapture.Image = FluentIcons.Get(FluentIcon.Camera);
             toolOneCapture.Click += mnuOneCaptureOnClick;
 
             toolTwoCaptures.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolTwoCaptures.Image = Properties.Resources.dualcapture2;
+            toolTwoCaptures.Image = FluentIcons.Get(FluentIcon.DualCamera);
             toolTwoCaptures.Click += mnuTwoCapturesOnClick;
 
             toolTwoMixed.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolTwoMixed.Image = Properties.Resources.dualmixed3;
+            toolTwoMixed.Image = FluentIcons.Get(FluentIcon.Mixed);
             toolTwoMixed.Click += mnuTwoMixedOnClick;
 
             ToolStrip ts = new ToolStrip(new ToolStripItem[] {
                                             toolSave,
+                                            toolExportFrames,
                                             new ToolStripSeparator(),
                                             toolToggleNavigationPane,
                                             new ToolStripSeparator(),
@@ -1206,6 +1212,7 @@ namespace Kinovea.ScreenManager
             // and global screen configuration.
 
             #region Menus depending only on the state of the active screen
+            toolExportFrames.Enabled = activeScreen is PlayerScreen && activeScreen.Full && !((PlayerScreen)activeScreen).IsSingleFrame;
             bool activeScreenIsEmpty = false;
             if (activeScreen != null && screenList.Count > 0)
             {
@@ -1970,6 +1977,9 @@ namespace Kinovea.ScreenManager
         private void RefreshCultureToolbar()
         {
             toolSave.ToolTipText = ScreenManagerLang.Generic_SaveKVA;
+            toolSave.Text = ScreenManagerLang.Generic_Save;
+            toolExportFrames.Text = ScreenManagerLang.mnuExport_Images_Sequence;
+            toolExportFrames.ToolTipText = ScreenManagerLang.formConfigureExport_ImageSequence;
             toolToggleNavigationPane.ToolTipText = "Navigation pane";
             toolExplorer.ToolTipText = "File browser";
             toolOnePlayer.ToolTipText = ScreenManagerLang.mnuOnePlayer;

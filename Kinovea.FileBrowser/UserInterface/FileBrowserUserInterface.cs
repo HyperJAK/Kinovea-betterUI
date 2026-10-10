@@ -950,12 +950,12 @@ namespace Kinovea.FileBrowser
 
             foreach (ListViewItem item in lv.Items)
             {
-                item.BackColor = Color.White;
-                item.ForeColor = Color.Black;
+                item.BackColor = DarkTheme.Surface;
+                item.ForeColor = DarkTheme.Text;
             }
 
-            lv.SelectedItems[0].BackColor = SystemColors.Highlight;
-            lv.SelectedItems[0].ForeColor = SystemColors.HighlightText;
+            lv.SelectedItems[0].BackColor = DarkTheme.Selection;
+            lv.SelectedItems[0].ForeColor = DarkTheme.Text;
 
             if (!externalSelection)
                 NotificationCenter.RaiseFileSelected(this, file);

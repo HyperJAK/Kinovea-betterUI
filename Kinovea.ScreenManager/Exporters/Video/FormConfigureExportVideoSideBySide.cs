@@ -13,7 +13,7 @@ using Kinovea.Video;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormConfigureExportVideoSideBySide : Form
+    public partial class FormConfigureExportVideoSideBySide : Kinovea.Services.ThemedForm
     {
         /// <summary>
         /// Whether we should composite videos horizontally or vertically.

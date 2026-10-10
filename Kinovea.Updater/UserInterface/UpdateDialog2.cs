@@ -33,7 +33,7 @@ namespace Kinovea.Updater
     /// This is a simple dialog showing the changelog and a button to download the latest version.
     /// We only come here if there is an actual update available.
     /// </summary>
-    public partial class UpdateDialog2 : Form
+    public partial class UpdateDialog2 : Kinovea.Services.ThemedForm
     {
         private HelpIndex hiRemote;
         private ThreePartsVersion currentVersion;

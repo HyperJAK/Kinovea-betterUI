@@ -31,7 +31,7 @@ namespace Kinovea.ScreenManager
     /// Dialog to configure the capture frame rate of the video.
     /// Defines the scale of the time axis.
     /// </summary>
-    public partial class formConfigureSpeed : Form
+    public partial class formConfigureSpeed : Kinovea.Services.ThemedForm
     {
         #region Properties
         /// <summary>

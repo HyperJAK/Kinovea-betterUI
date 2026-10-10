@@ -31,7 +31,7 @@ namespace Kinovea.Camera.FrameGenerator
     /// Configuration dialog for the simulated camera.
     /// Loosely modeled on the configuration dialog for the machine vision cameras modules.
     /// </summary>
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         public bool AliasChanged
         {

@@ -37,7 +37,7 @@ namespace Kinovea.ScreenManager
         {
             this.lblAlias = new System.Windows.Forms.Label();
             this.picBox = new System.Windows.Forms.PictureBox();
-            this.btnIcon = new System.Windows.Forms.Button();
+            this.btnIcon = new Kinovea.Services.FluentButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 

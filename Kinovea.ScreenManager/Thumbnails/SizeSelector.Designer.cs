@@ -48,11 +48,11 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLarge = new System.Windows.Forms.Button();
-            this.btnMedium = new System.Windows.Forms.Button();
-            this.btnSmall = new System.Windows.Forms.Button();
-            this.btnExtraLarge = new System.Windows.Forms.Button();
-            this.btnExtraSmall = new System.Windows.Forms.Button();
+            this.btnLarge = new Kinovea.Services.FluentButton();
+            this.btnMedium = new Kinovea.Services.FluentButton();
+            this.btnSmall = new Kinovea.Services.FluentButton();
+            this.btnExtraLarge = new Kinovea.Services.FluentButton();
+            this.btnExtraSmall = new Kinovea.Services.FluentButton();
             this.SuspendLayout();
             // 
             // btnLarge

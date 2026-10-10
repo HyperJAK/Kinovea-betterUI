@@ -30,19 +30,19 @@
         {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWindowManager));
-      this.grpIdentifier = new System.Windows.Forms.GroupBox();
-      this.btnRefresh = new System.Windows.Forms.Button();
+      this.grpIdentifier = new Kinovea.Services.FluentGroupBox();
+      this.btnRefresh = new Kinovea.Services.FluentButton();
       this.olvWindows = new BrightIdeasSoftware.ObjectListView();
       this.imgListStatus = new System.Windows.Forms.ImageList(this.components);
-      this.btnDelete = new System.Windows.Forms.Button();
-      this.btnStartStop = new System.Windows.Forms.Button();
-      this.btnClose = new System.Windows.Forms.Button();
-      this.grpScreenList = new System.Windows.Forms.GroupBox();
+      this.btnDelete = new Kinovea.Services.FluentButton();
+      this.btnStartStop = new Kinovea.Services.FluentButton();
+      this.btnClose = new Kinovea.Services.FluentButton();
+      this.grpScreenList = new Kinovea.Services.FluentGroupBox();
       this.pnlScreenList = new System.Windows.Forms.Panel();
       this.lblScreen2 = new System.Windows.Forms.Label();
-      this.btnScreen2 = new System.Windows.Forms.Button();
+      this.btnScreen2 = new Kinovea.Services.FluentButton();
       this.lblScreen1 = new System.Windows.Forms.Label();
-      this.btnScreen1 = new System.Windows.Forms.Button();
+      this.btnScreen1 = new Kinovea.Services.FluentButton();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.grpIdentifier.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.olvWindows)).BeginInit();

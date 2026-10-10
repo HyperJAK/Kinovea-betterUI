@@ -28,7 +28,7 @@ using Kinovea.Services;
 
 namespace Kinovea.Root
 {
-    public partial class KinoveaMainWindow : Form
+    public partial class KinoveaMainWindow : Kinovea.Services.ThemedForm
     {
         #region Properties
         public SupervisorUserInterface SupervisorControl
@@ -59,6 +59,23 @@ namespace Kinovea.Root
 
             this.rootKernel = rootKernel;
             InitializeComponent();
+
+            // Comfortable spacing on the application chrome without changing video layout.
+            menuStrip.Padding = new Padding(12, 5, 12, 5);
+            toolStrip.Padding = new Padding(12, 8, 12, 8);
+            toolStrip.AutoSize = false;
+            toolStrip.Height = 52;
+            toolStrip.CanOverflow = true;
+            var brand = new ToolStripLabel("Kinovea")
+            {
+                Font = new Font("Segoe UI", 12F, FontStyle.Bold),
+                Margin = new Padding(4, 0, 20, 0)
+            };
+            toolStrip.Items.Add(brand);
+            statusStrip.Padding = new Padding(12, 4, 12, 4);
+            menuStrip.Font = new Font("Segoe UI", 9F);
+            toolStrip.Font = menuStrip.Font;
+            statusStrip.Font = menuStrip.Font;
 
             UpdateTitle();
             

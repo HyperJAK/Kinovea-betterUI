@@ -37,7 +37,7 @@ namespace Kinovea.ScreenManager
     /// Specifically, we work and update the actual instance in real time. 
     /// If the user finally decide to cancel there's a "fallback to memo" mechanism. 
     /// </summary>
-    public partial class formConfigureTrajectoryDisplay : Form
+    public partial class formConfigureTrajectoryDisplay : Kinovea.Services.ThemedForm
     {
         #region Members
         private bool manualClose = false;

@@ -15,7 +15,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Form to select a context variable to insert in a pattern.
     /// </summary>
-    public partial class FormInsertVariable : Form
+    public partial class FormInsertVariable : Kinovea.Services.ThemedForm
     {
         #region Private types
         private class ListViewVariable

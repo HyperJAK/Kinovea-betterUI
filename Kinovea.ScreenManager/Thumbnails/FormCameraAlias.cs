@@ -31,7 +31,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Description of FormCameraAlias.
     /// </summary>
-    public partial class FormCameraAlias : Form
+    public partial class FormCameraAlias : Kinovea.Services.ThemedForm
     {
         public string Alias 
         { 

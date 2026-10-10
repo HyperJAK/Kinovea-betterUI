@@ -12,7 +12,7 @@ using Kinovea.Services;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormCalibrateDistortion : Form
+    public partial class FormCalibrateDistortion : Kinovea.Services.ThemedForm
     {
         private DistortionHelper distorter = new DistortionHelper();
         private Bitmap bmpCurrentImage;

@@ -48,7 +48,7 @@ namespace Kinovea.Camera
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnApply = new System.Windows.Forms.Button();
+            this.btnApply = new Kinovea.Services.FluentButton();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();

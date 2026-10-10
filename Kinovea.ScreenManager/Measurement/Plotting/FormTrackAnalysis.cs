@@ -16,7 +16,7 @@ using Kinovea.ScreenManager.Languages;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormTrackAnalysis : Form
+    public partial class FormTrackAnalysis : Kinovea.Services.ThemedForm
     {
         private Metadata metadata;
         private TrajectoryKinematics kinematics;

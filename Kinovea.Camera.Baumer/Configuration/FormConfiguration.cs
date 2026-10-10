@@ -30,7 +30,7 @@ using System.Globalization;
 
 namespace Kinovea.Camera.Baumer
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Kinovea.Services.ThemedForm
     {
         public bool AliasChanged
         {

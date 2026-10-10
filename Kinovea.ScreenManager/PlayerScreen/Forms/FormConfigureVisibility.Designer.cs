@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpConfig = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpConfig = new Kinovea.Services.FluentGroupBox();
       this.nudFading = new System.Windows.Forms.NumericUpDown();
       this.nudOpaque = new System.Windows.Forms.NumericUpDown();
       this.nudMax = new System.Windows.Forms.NumericUpDown();

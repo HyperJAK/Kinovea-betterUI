@@ -13,7 +13,7 @@ using Kinovea.Video;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormConfigureExportVideoSlideshow : Form
+    public partial class FormConfigureExportVideoSlideshow : Kinovea.Services.ThemedForm
     {
         /// <summary>
         /// Duratiion of the key image slides, in milliseconds.

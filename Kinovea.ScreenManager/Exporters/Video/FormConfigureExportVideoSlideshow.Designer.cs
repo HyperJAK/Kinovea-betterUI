@@ -29,12 +29,12 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpboxConfig = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpboxConfig = new Kinovea.Services.FluentGroupBox();
       this.lblInfosFrequency = new System.Windows.Forms.Label();
       this.trkInterval = new System.Windows.Forms.TrackBar();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.groupBox1 = new Kinovea.Services.FluentGroupBox();
       this.encodingSettings = new Kinovea.ScreenManager.Exporters.Video.ControlEncodingSettings();
       this.grpboxConfig.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.trkInterval)).BeginInit();

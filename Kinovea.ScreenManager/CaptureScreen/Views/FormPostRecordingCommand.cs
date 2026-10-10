@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace Kinovea.ScreenManager
 {
-    public partial class FormPostRecordingCommand : Form
+    public partial class FormPostRecordingCommand : Kinovea.Services.ThemedForm
     {
         #region Members
         private bool enablePRC;

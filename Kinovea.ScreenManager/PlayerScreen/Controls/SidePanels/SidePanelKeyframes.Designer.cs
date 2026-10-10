@@ -33,10 +33,10 @@ namespace Kinovea.ScreenManager
       this.flowKeyframes = new System.Windows.Forms.FlowLayoutPanel();
       this.panel1 = new System.Windows.Forms.Panel();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-      this.btnNext = new System.Windows.Forms.Button();
-      this.btnPrev = new System.Windows.Forms.Button();
-      this.btnShowAll = new System.Windows.Forms.Button();
-      this.btnAddKeyframe = new System.Windows.Forms.Button();
+      this.btnNext = new Kinovea.Services.FluentButton();
+      this.btnPrev = new Kinovea.Services.FluentButton();
+      this.btnShowAll = new Kinovea.Services.FluentButton();
+      this.btnAddKeyframe = new Kinovea.Services.FluentButton();
       this.lblCount = new System.Windows.Forms.Label();
       this.panel1.SuspendLayout();
       this.SuspendLayout();

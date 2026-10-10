@@ -30,7 +30,7 @@ using System.Text;
 
 namespace Kinovea.Root
 {
-    public partial class FormAbout : Form
+    public partial class FormAbout : Kinovea.Services.ThemedForm
     {
         private string year = "2026";
         private Font fontHeader = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);

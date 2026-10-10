@@ -15,7 +15,7 @@ namespace Kinovea.Root
     /// <summary>
     /// Form to edit the properties of the active window.
     /// </summary>
-    public partial class FormWindowProperties : Form
+    public partial class FormWindowProperties : Kinovea.Services.ThemedForm
     {
 
         private string name;

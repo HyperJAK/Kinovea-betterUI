@@ -21,7 +21,7 @@ namespace Kinovea.ScreenManager
     /// <summary>
     /// Scatter analysis based on all the points registered.
     /// </summary>
-    public partial class FormPointsAnalysis : Form
+    public partial class FormPointsAnalysis : Kinovea.Services.ThemedForm
     {
         private List<DrawingCrossMark> drawings = new List<DrawingCrossMark>();
         private List<TimedPoint> points = new List<TimedPoint>();

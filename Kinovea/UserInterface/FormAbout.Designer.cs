@@ -31,11 +31,11 @@ namespace Kinovea.Root
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
       this.logoPictureBox = new System.Windows.Forms.PictureBox();
       this.lblKinovea = new System.Windows.Forms.Label();
-      this.okButton = new System.Windows.Forms.Button();
+      this.okButton = new Kinovea.Services.FluentButton();
       this.labelCopyright = new System.Windows.Forms.Label();
       this.lnkKinovea = new System.Windows.Forms.LinkLabel();
       this.rtbTranslators = new System.Windows.Forms.RichTextBox();
-      this.tabControl = new System.Windows.Forms.TabControl();
+      this.tabControl = new Kinovea.Services.FluentTabControl();
       this.pageLicense = new System.Windows.Forms.TabPage();
       this.rtbLicense = new System.Windows.Forms.RichTextBox();
       this.pageBuildingBlocks = new System.Windows.Forms.TabPage();

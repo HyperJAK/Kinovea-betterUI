@@ -32,16 +32,16 @@ namespace Kinovea.ScreenManager
       this.lblInfo = new System.Windows.Forms.Label();
       this.toolTips = new System.Windows.Forms.ToolTip(this.components);
       this.trkFrame = new Kinovea.ScreenManager.FrameTracker();
-      this.btnMerge = new System.Windows.Forms.Button();
-      this.btnSync = new System.Windows.Forms.Button();
-      this.btnSwap = new System.Windows.Forms.Button();
-      this.buttonGotoFirst = new System.Windows.Forms.Button();
-      this.buttonGotoPrevious = new System.Windows.Forms.Button();
-      this.buttonGotoNext = new System.Windows.Forms.Button();
-      this.buttonGotoLast = new System.Windows.Forms.Button();
-      this.buttonPlay = new System.Windows.Forms.Button();
-      this.btnSnapshot = new System.Windows.Forms.Button();
-      this.btnDualSave = new System.Windows.Forms.Button();
+      this.btnMerge = new Kinovea.Services.FluentButton();
+      this.btnSync = new Kinovea.Services.FluentButton();
+      this.btnSwap = new Kinovea.Services.FluentButton();
+      this.buttonGotoFirst = new Kinovea.Services.FluentButton();
+      this.buttonGotoPrevious = new Kinovea.Services.FluentButton();
+      this.buttonGotoNext = new Kinovea.Services.FluentButton();
+      this.buttonGotoLast = new Kinovea.Services.FluentButton();
+      this.buttonPlay = new Kinovea.Services.FluentButton();
+      this.btnSnapshot = new Kinovea.Services.FluentButton();
+      this.btnDualSave = new Kinovea.Services.FluentButton();
       this.SuspendLayout();
       // 
       // lblInfo

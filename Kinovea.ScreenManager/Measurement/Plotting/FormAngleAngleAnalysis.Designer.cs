@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabControl = new Kinovea.Services.FluentTabControl();
             this.pagePlot = new System.Windows.Forms.TabPage();
             this.plotView = new OxyPlot.WindowsForms.PlotView();
-            this.gbLabels = new System.Windows.Forms.GroupBox();
+            this.gbLabels = new Kinovea.Services.FluentGroupBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tbYAxis = new System.Windows.Forms.TextBox();
             this.tbXAxis = new System.Windows.Forms.TextBox();
             this.lblYAxis = new System.Windows.Forms.Label();
             this.lblXAxis = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
-            this.gbExportData = new System.Windows.Forms.GroupBox();
-            this.btnDataCopy = new System.Windows.Forms.Button();
-            this.btnExportData = new System.Windows.Forms.Button();
-            this.gbExportGraph = new System.Windows.Forms.GroupBox();
-            this.btnImageCopy = new System.Windows.Forms.Button();
-            this.btnExportGraph = new System.Windows.Forms.Button();
+            this.gbExportData = new Kinovea.Services.FluentGroupBox();
+            this.btnDataCopy = new Kinovea.Services.FluentButton();
+            this.btnExportData = new Kinovea.Services.FluentButton();
+            this.gbExportGraph = new Kinovea.Services.FluentGroupBox();
+            this.btnImageCopy = new Kinovea.Services.FluentButton();
+            this.btnExportGraph = new Kinovea.Services.FluentButton();
             this.lblPixels = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.nudWidth = new System.Windows.Forms.NumericUpDown();
-            this.gbSource = new System.Windows.Forms.GroupBox();
+            this.gbSource = new Kinovea.Services.FluentGroupBox();
             this.cbSourceY = new System.Windows.Forms.ComboBox();
             this.lblSourceYAxis = new System.Windows.Forms.Label();
             this.cbSourceX = new System.Windows.Forms.ComboBox();

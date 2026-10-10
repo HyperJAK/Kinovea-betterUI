@@ -29,11 +29,11 @@ namespace Kinovea.ScreenManager
         private void InitializeComponent()
         {
       this.components = new System.ComponentModel.Container();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpHighSpeedCamera = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpHighSpeedCamera = new Kinovea.Services.FluentGroupBox();
       this.tbCaptureInfo = new System.Windows.Forms.TextBox();
-      this.btnResetCapture = new System.Windows.Forms.Button();
+      this.btnResetCapture = new Kinovea.Services.FluentButton();
       this.tbCapture = new System.Windows.Forms.TextBox();
       this.lblCapture = new System.Windows.Forms.Label();
       this.toolTips = new System.Windows.Forms.ToolTip(this.components);

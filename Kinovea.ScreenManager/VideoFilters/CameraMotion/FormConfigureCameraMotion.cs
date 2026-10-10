@@ -19,7 +19,7 @@ namespace Kinovea.ScreenManager
     /// - In case of cancel or close we restore from the memento.
     /// - In case of OK we don't have anything more to do.
     /// </summary>
-    public partial class FormConfigureCameraMotion : Form
+    public partial class FormConfigureCameraMotion : Kinovea.Services.ThemedForm
     {
         #region Members
         private VideoFilterCameraMotion cameraMotion;

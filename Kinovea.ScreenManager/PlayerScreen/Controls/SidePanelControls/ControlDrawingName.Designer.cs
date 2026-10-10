@@ -30,7 +30,7 @@ namespace Kinovea.ScreenManager
         private void InitializeComponent()
         {
       this.tbName = new System.Windows.Forms.TextBox();
-      this.button1 = new System.Windows.Forms.Button();
+      this.button1 = new Kinovea.Services.FluentButton();
       this.panel1 = new System.Windows.Forms.Panel();
       this.panel1.SuspendLayout();
       this.SuspendLayout();

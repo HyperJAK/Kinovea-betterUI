@@ -31,10 +31,10 @@ namespace Kinovea.ScreenManager
             this.components = new System.ComponentModel.Container();
             this.lblInfo = new System.Windows.Forms.Label();
             this.toolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.btnGrab = new System.Windows.Forms.Button();
-            this.btnRecord = new System.Windows.Forms.Button();
-            this.btnSnapshot = new System.Windows.Forms.Button();
-            this.btnSwap = new System.Windows.Forms.Button();
+            this.btnGrab = new Kinovea.Services.FluentButton();
+            this.btnRecord = new Kinovea.Services.FluentButton();
+            this.btnSnapshot = new Kinovea.Services.FluentButton();
+            this.btnSwap = new Kinovea.Services.FluentButton();
             this.SuspendLayout();
             // 
             // lblInfo

@@ -37,7 +37,7 @@ namespace Kinovea.ScreenManager
     /// This is fundamentally incompatible with the old behavior where the user could make
     /// multiple changes in this dialog and cancel them all at once.
     /// </summary>
-    public partial class FormConfigureDrawing2 : Form
+    public partial class FormConfigureDrawing2 : Kinovea.Services.ThemedForm
     {
         #region Members
         private IDecorable drawing;

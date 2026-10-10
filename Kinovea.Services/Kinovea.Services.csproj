@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -345,6 +345,9 @@
     <Compile Include="Types\TimecodeType.cs" />
     <Compile Include="ThreePartsVersion.cs" />
     <Compile Include="TimeHelper.cs" />
+    <Compile Include="WinForms\DarkTheme.cs" />
+    <Compile Include="WinForms\FluentControls.cs" />
+    <Compile Include="WinForms\FluentIcons.cs" />
     <Compile Include="WinForms\NudHelper.cs" />
     <Compile Include="WinForms\TextHelper.cs" />
     <Compile Include="WinForms\TextboxHotkey.cs">

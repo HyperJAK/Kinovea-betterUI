@@ -33,7 +33,7 @@ namespace Kinovea.ScreenManager
     /// FormProgressBar is a simple form to display a progress bar.
     /// The progress is computed outside and communicated through Update() method.
     /// </summary>
-    public partial class FormProgressBar : Form
+    public partial class FormProgressBar : Kinovea.Services.ThemedForm
     {
         #region Callbacks
         public event EventHandler CancelAsked;

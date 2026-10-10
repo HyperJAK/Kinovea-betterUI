@@ -30,7 +30,7 @@ namespace Kinovea.ScreenManager
         {
       this.components = new System.ComponentModel.Container();
       this.lblName = new System.Windows.Forms.Label();
-      this.btnClose = new System.Windows.Forms.Button();
+      this.btnClose = new Kinovea.Services.FluentButton();
       this.pbThumbnail = new System.Windows.Forms.PictureBox();
       this.toolTips = new System.Windows.Forms.ToolTip(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).BeginInit();
