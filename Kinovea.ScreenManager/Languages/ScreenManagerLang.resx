@@ -1803,4 +1803,10 @@
   <data name="FrameExtraction_QualityHint" xml:space="preserve">
     <value>Choose PNG for lossless images.</value>
   </data>
+  <data name="WorkspaceEmpty_Title" xml:space="preserve">
+    <value>Your media workspace</value>
+  </data>
+  <data name="WorkspaceEmpty_Hint" xml:space="preserve">
+    <value>Open an image or video, or choose a folder with media in the navigation pane.</value>
+  </data>
 </root>

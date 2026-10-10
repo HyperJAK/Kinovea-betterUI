@@ -96,6 +96,22 @@ namespace Kinovea.FileBrowser
         {
             InitializeComponent();
 
+            tabControl.Font = new Font("Segoe UI", 9.5F);
+            tvExplorer.Font = new Font("Segoe UI", 9.5F);
+            tvExplorer.ItemHeight = 24;
+            lvExplorer.Font = lvCaptured.Font = new Font("Segoe UI", 9.5F);
+            imgListFiles.ImageSize = new Size(24, 24);
+            imgListFiles.Images.Clear();
+            imgListFiles.Images.Add(FluentIcons.Get(FluentIcon.Video));
+            imgListTabs.ImageSize = new Size(20, 20);
+            imgListTabs.Images.Clear();
+            imgListTabs.Images.Add("tree.png", FluentIcons.Get(FluentIcon.Library));
+            imgListTabs.Images.Add("camera", FluentIcons.Get(FluentIcon.Camera));
+            btnAddFavorite.BackgroundImage = null;
+            btnAddFavorite.Image = FluentIcons.Get(FluentIcon.FolderAdd);
+            btnCameraRefresh.BackgroundImage = null;
+            btnCameraRefresh.Image = FluentIcons.Get(FluentIcon.Refresh);
+
             // Restore UI state.
             splitExplorerFiles.SplitterDistance = (int)(splitExplorerFiles.Height * WindowManager.ActiveWindow.ExplorerFilesSplitterRatio);
             
@@ -427,8 +443,8 @@ namespace Kinovea.FileBrowser
         #region Public interface
         public void RefreshUICulture()
         {
-            tabPageClassic.Text = "";
-            tabPageCameras.Text = "";
+            tabPageClassic.Text = FileBrowserLang.navPane_FileSystem;
+            tabPageCameras.Text = FileBrowserLang.tabCameras;
 
             btnManual.Text = FileBrowserLang.FormCameraWizard_Title;
             lblCaptureHistory.Text = FileBrowserLang.lblCaptureHistory;
@@ -935,7 +951,7 @@ namespace Kinovea.FileBrowser
             if (lv.Columns.Count == 0)
                 return;
 
-            lv.Columns[0].Width = lv.Width;
+            lv.Columns[0].Width = Math.Max(0, lv.ClientSize.Width - SystemInformation.VerticalScrollBarWidth);
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
@@ -1006,8 +1022,8 @@ namespace Kinovea.FileBrowser
             lvExplorer.View = View.Details;
             lvExplorer.Items.Clear();
             lvExplorer.Columns.Clear();
-            lvExplorer.Columns.Add("", lvExplorer.Width);
-            lvExplorer.GridLines = true;
+            lvExplorer.Columns.Add("", Math.Max(0, lvExplorer.ClientSize.Width - SystemInformation.VerticalScrollBarWidth));
+            lvExplorer.GridLines = false;
             lvExplorer.HeaderStyle = ColumnHeaderStyle.None;
 
             // Push them to the list view.
@@ -1034,8 +1050,8 @@ namespace Kinovea.FileBrowser
             lvCaptured.View = View.Details;
             lvCaptured.Items.Clear();
             lvCaptured.Columns.Clear();
-            lvCaptured.Columns.Add("", lvCaptured.Width);
-            lvCaptured.GridLines = true;
+            lvCaptured.Columns.Add("", Math.Max(0, lvCaptured.ClientSize.Width - SystemInformation.VerticalScrollBarWidth));
+            lvCaptured.GridLines = false;
             lvCaptured.HeaderStyle = ColumnHeaderStyle.None;
 
             foreach (string filename in filenames)

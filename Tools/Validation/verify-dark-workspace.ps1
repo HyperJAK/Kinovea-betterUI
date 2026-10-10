@@ -137,6 +137,29 @@ class Check {
         }
         foreach (FluentIcon icon in Enum.GetValues(typeof(FluentIcon)))
             Assert(object.ReferenceEquals(FluentIcons.Get(icon), FluentIcons.Get(icon)), "Toolbar icons must be cached");
+        using (var form = new ThemedForm())
+        using (var empty = new MediaEmptyState { Heading = "Your media workspace", Hint = "Open an image or video.", ActionText = "Open video" }) {
+            form.Controls.Add(empty);
+            int asked = 0;
+            empty.OpenAsked += (sender, e) => asked++;
+            form.ClientSize = new Size(800, 500);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-32000, -32000);
+            form.Show();
+            empty.Controls.OfType<FluentButton>().Single().PerformClick();
+            Assert(asked == 1, "Empty-state Open action must fire once");
+            foreach (var size in new [] { new Size(320, 240), new Size(800, 500), new Size(1600, 1000) }) {
+                form.ClientSize = size;
+                empty.PerformLayout();
+                foreach (Control child in empty.Controls)
+                    Assert(empty.ClientRectangle.Contains(child.Bounds), "Empty-state content clipped after resize");
+            }
+            form.Close();
+        }
+        using (var list = new ListView { GridLines = true }) {
+            DarkTheme.Apply(list);
+            Assert(!list.GridLines, "Dark media lists must not show bright native grid lines");
+        }
         foreach (float scale in new [] {1F, 1.25F, 1.5F, 2F}) {
             using (var dialog = new FormConfigureExportImageSequence(new PlayerScreen())) {
                 dialog.Scale(new SizeF(scale, scale));

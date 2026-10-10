@@ -43,8 +43,8 @@ namespace Kinovea.ScreenManager
 
         public ViewerSelector()
         {
-            ViewerSelectorOption optionFiles = new ViewerSelectorOption(Properties.Resources.explorer_video, "File system", BrowserContentType.FileSystem);
-            ViewerSelectorOption optionCameras = new ViewerSelectorOption(Properties.Resources.webcam2b_16, "Cameras", BrowserContentType.Cameras);
+            ViewerSelectorOption optionFiles = new ViewerSelectorOption(FluentIcons.Get(FluentIcon.Library), "File system", BrowserContentType.FileSystem);
+            ViewerSelectorOption optionCameras = new ViewerSelectorOption(FluentIcons.Get(FluentIcon.Camera), "Cameras", BrowserContentType.Cameras);
 
             List<ViewerSelectorOption> options = new List<ViewerSelectorOption>();
             options.Add(optionFiles);
@@ -60,8 +60,8 @@ namespace Kinovea.ScreenManager
             int spacing = 8;
             foreach(ViewerSelectorOption option in options)
             {
-                Button btn = new Button();
-                btn.BackgroundImage = option.Image;
+                Button btn = new FluentButton();
+                btn.Image = option.Image;
                 btn.BackgroundImageLayout = ImageLayout.Center;
                 btn.BackColor = Color.WhiteSmoke;
                 btn.FlatStyle = FlatStyle.Flat;
