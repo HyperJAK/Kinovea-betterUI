@@ -64,12 +64,20 @@ namespace Kinovea.Services
             }
             ListView list = control as ListView;
             if (list != null)
+            {
                 list.BorderStyle = BorderStyle.None;
+                list.GridLines = false;
+            }
             TreeView tree = control as TreeView;
             if (tree != null)
             {
                 tree.BorderStyle = BorderStyle.None;
                 tree.LineColor = Raised;
+            }
+            if (list != null || tree != null)
+            {
+                control.HandleCreated += (sender, args) => ApplyNativeTheme(control);
+                if (control.IsHandleCreated) ApplyNativeTheme(control);
             }
             ToolStrip strip = control as ToolStrip;
             if (strip != null)
@@ -91,6 +99,19 @@ namespace Kinovea.Services
             foreach (Control child in control.Controls)
                 Apply(child);
         }
+
+        // Windows supplies the scrollbar and native selection rendering.
+        // Unsupported hosts retain their normal common-control theme.
+        public static void ApplyNativeTheme(Control control)
+        {
+            if (Environment.OSVersion.Platform != PlatformID.Win32NT || !control.IsHandleCreated) return;
+            try { SetWindowTheme(control.Handle, "DarkMode_Explorer", null); }
+            catch (DllNotFoundException) { }
+            catch (EntryPointNotFoundException) { }
+        }
+
+        [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
+        private static extern int SetWindowTheme(IntPtr handle, string subAppName, string subIdList);
 
         private static void ApplyItems(ToolStripItemCollection items)
         {

@@ -71,14 +71,19 @@ static class FluentPreview
             var tabs = new FluentTabControl { Dock = DockStyle.Fill };
             var files = new TabPage("Files");
             tabs.TabPages.Add(files); tabs.TabPages.Add("Cameras");
-            var tree = new TreeView { Dock = DockStyle.Fill, Indent = 18 };
+            var tree = new TreeView { Dock = DockStyle.Fill, Indent = 18, ItemHeight = 24, Font = new Font("Segoe UI", 9.5F) };
             tree.Nodes.Add("Videos").Nodes.Add("Motion analysis");
             tree.Nodes.Add("Pictures"); tree.Nodes.Add("Exports"); tree.ExpandAll();
-            files.Controls.Add(tree); library.Controls.Add(tabs);
+            var browser = new SplitContainer { Dock = DockStyle.Fill, Orientation = Orientation.Horizontal };
+            browser.Panel1.Controls.Add(tree);
+            var list = new ListView { Dock = DockStyle.Fill, View = View.Details, FullRowSelect = true, HeaderStyle = ColumnHeaderStyle.None, Font = new Font("Segoe UI", 9.5F) };
+            list.Columns.Add("", 240);
+            list.Items.Add("Walking analysis.mp4"); list.Items.Add("Reference image.png");
+            browser.Panel2.Controls.Add(list);
+            files.Controls.Add(browser); library.Controls.Add(tabs);
             var viewer = new UserControl();
-            var title = new Label { Text = "Media workspace", Dock = DockStyle.Top, Height = 56, Padding = new Padding(16, 0, 0, 0), TextAlign = ContentAlignment.MiddleLeft, Font = new Font("Segoe UI", 18F, FontStyle.Bold) };
-            var empty = new Label { Dock = DockStyle.Fill, Text = "Open an image or video\n\nSample content for the native UI preview", TextAlign = ContentAlignment.MiddleCenter, Font = new Font("Segoe UI", 13F) };
-            viewer.Controls.Add(empty); viewer.Controls.Add(title);
+            var empty = new MediaEmptyState { Heading = "Your media workspace", Hint = "Open an image or video, or choose a folder with media in the navigation pane.", ActionText = "Open video\u2026" };
+            viewer.Controls.Add(empty);
             shell.PlugUI(library, viewer);
             var menu = new MenuStrip { Dock = DockStyle.Top, Padding = new Padding(12, 5, 12, 5), Font = new Font("Segoe UI", 9F) };
             foreach (string text in new [] {"File", "Edit", "View", "Image", "Video", "Tools", "Options", "Help"}) menu.Items.Add(text);
@@ -93,6 +98,14 @@ static class FluentPreview
             form.Controls.Add(shell); form.Controls.Add(commands); form.Controls.Add(menu); form.Controls.Add(status);
             DarkTheme.Apply(form); form.PerformLayout();
             Save(form, Path.Combine(directory, "workspace.png"));
+        }
+        using (var form = new ThemedForm { ClientSize = new Size(640, 100), Text = "Playback and export control fixture" })
+        {
+            var row = new FlowLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(12), WrapContents = false };
+            foreach (FluentIcon icon in new [] { FluentIcon.First, FluentIcon.Previous, FluentIcon.Play, FluentIcon.Pause, FluentIcon.Next, FluentIcon.Last, FluentIcon.Image, FluentIcon.Frames, FluentIcon.VideoSave, FluentIcon.VideoPause, FluentIcon.Slideshow })
+                row.Controls.Add(new FluentButton { Size = new Size(42, 36), Image = FluentIcons.Get(icon), AccessibleName = icon.ToString() });
+            form.Controls.Add(row); DarkTheme.Apply(form);
+            Save(form, Path.Combine(directory, "playback-export-icons.png"));
         }
         using (var form = new FormPreferences2())
         {

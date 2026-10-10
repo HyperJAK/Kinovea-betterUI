@@ -136,7 +136,7 @@ namespace Kinovea.ScreenManager
         
         public void SetFullScreen(bool fullScreen)
         {
-            btnCloseFullscreen.Image = fullScreen ? Properties.Resources.collapse_16 : Properties.Resources.expand_16;
+            btnCloseFullscreen.Image = FluentIcons.Get(fullScreen ? FluentIcon.Collapse : FluentIcon.Expand);
         }
 
         public string GetStatusString()

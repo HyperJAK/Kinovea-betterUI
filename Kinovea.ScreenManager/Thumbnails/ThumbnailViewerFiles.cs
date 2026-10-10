@@ -43,6 +43,7 @@ namespace Kinovea.ScreenManager
         #endregion
 
         #region Members
+        private readonly MediaEmptyState emptyState = new MediaEmptyState();
         private ExplorerThumbSize thumbSize = ExplorerThumbSize.Medium;
         private List<SummaryLoader> loaders = new List<SummaryLoader>();
         private List<ThumbnailFile> thumbnails = new List<ThumbnailFile>();
@@ -80,6 +81,12 @@ namespace Kinovea.ScreenManager
             log.Debug("Constructing ThumbnailViewerFiles");
             
             InitializeComponent();
+            Controls.Add(emptyState);
+            emptyState.OpenAsked += (sender, args) => {
+                string filename = FilePicker.OpenVideo(ScreenManagerLang.mnuOpenVideo, ScreenManagerLang.FileFilter_All + "|*.*");
+                if (!string.IsNullOrEmpty(filename) && FileLoadAsked != null)
+                    FileLoadAsked(this, new FileLoadAskedEventArgs(filename, -1));
+            };
             RefreshUICulture();
             this.Dock = DockStyle.Fill;
             this.BackColor = Color.FromArgb(250, 250, 250);
@@ -123,6 +130,9 @@ namespace Kinovea.ScreenManager
                 // It's not fully initialized yet. We'll come back later.
                 return;
             }
+
+            emptyState.Visible = files.Count == 0;
+            if (emptyState.Visible) emptyState.BringToFront();
 
             int visibleThumbnails = thumbnails.Count(th => th.Visible);
 
@@ -677,6 +687,9 @@ namespace Kinovea.ScreenManager
 
         public void RefreshUICulture()
         {
+            emptyState.Heading = ScreenManagerLang.ResourceManager.GetString("WorkspaceEmpty_Title");
+            emptyState.Hint = ScreenManagerLang.ResourceManager.GetString("WorkspaceEmpty_Hint");
+            emptyState.ActionText = ScreenManagerLang.mnuOpenVideo;
             var visibilityOptions = PreferencesManager.FileExplorerPreferences.FilePropertyVisibility.Visible;
             foreach (ThumbnailFile tf in thumbnails)
             {

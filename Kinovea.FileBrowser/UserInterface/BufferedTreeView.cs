@@ -1,4 +1,4 @@
-﻿using Kinovea.Services;
+using Kinovea.Services;
 using System;
 using System.Windows.Forms;
 
@@ -23,7 +23,7 @@ namespace Kinovea.FileBrowser
 
             try
             {
-                NativeMethods.SetWindowTheme(Handle, "Explorer", null);
+                DarkTheme.ApplyNativeTheme(this);
             }
             catch (DllNotFoundException)
             {

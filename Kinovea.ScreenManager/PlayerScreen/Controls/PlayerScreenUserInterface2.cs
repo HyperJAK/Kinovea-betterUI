@@ -505,6 +505,23 @@ namespace Kinovea.ScreenManager
             m_FrameServer.Metadata.VideoFilterModified += (s, e) => AfterVideoFilterModified();
 
             InitializeComponent();
+            // Replace the decorative bitmap dock with the same dark surface as the player.
+            panel1.BackgroundImage = null;
+            buttonGotoFirst.Image = FluentIcons.Get(FluentIcon.First);
+            buttonGotoPrevious.Image = FluentIcons.Get(FluentIcon.Previous);
+            buttonGotoNext.Image = FluentIcons.Get(FluentIcon.Next);
+            buttonGotoLast.Image = FluentIcons.Get(FluentIcon.Last);
+            buttonPlay.Image = FluentIcons.Get(FluentIcon.Play);
+            foreach (Button button in new [] { buttonGotoFirst, buttonGotoPrevious, buttonGotoNext, buttonGotoLast })
+            {
+                button.Top = buttonPlay.Top;
+                button.Height = buttonPlay.Height;
+            }
+            btnExportImage.Image = FluentIcons.Get(FluentIcon.Image);
+            btnExportImageSequence.Image = FluentIcons.Get(FluentIcon.Frames);
+            btnExportVideo.Image = FluentIcons.Get(FluentIcon.VideoSave);
+            btnExportVideoWithPauses.Image = FluentIcons.Get(FluentIcon.VideoPause);
+            btnExportVideoSlideshow.Image = FluentIcons.Get(FluentIcon.Slideshow);
             InitializeInfobar();
             InitializePropertiesPanel();
             InitializeDrawingTools(drawingToolbarPresenter);
@@ -590,7 +607,7 @@ namespace Kinovea.ScreenManager
             EnableDisableAllPlayingControls(true);
             EnableDisableDrawingTools(true);
             EnableDisableExportButtons(true);
-            buttonPlay.Image = Resources.flatplay;
+            buttonPlay.Image = FluentIcons.Get(FluentIcon.Play);
             sldrSpeed.Enabled = false;
             UpdateShowCacheInTimeline();
             allowPreScaling = PreferencesManager.PlayerPreferences.EnablePreviewScaling;
@@ -1535,7 +1552,7 @@ namespace Kinovea.ScreenManager
                 if (!dualReplay)
                 {
                     // A new video just loaded in a single replay watcher, start it.
-                    buttonPlay.Image = Resources.flatpause3b;
+                    buttonPlay.Image = FluentIcons.Get(FluentIcon.Pause);
                     StartMultimediaTimer(currentTimestamp);
                     PlayStarted?.Invoke(this, EventArgs.Empty);
                 }
@@ -2258,7 +2275,7 @@ namespace Kinovea.ScreenManager
             }
             else
             {
-                buttonPlay.Image = Resources.flatpause3b;
+                buttonPlay.Image = FluentIcons.Get(FluentIcon.Pause);
                 StartMultimediaTimer(currentTimestamp);
                 PlayStarted?.Invoke(this, EventArgs.Empty);
             }
@@ -2274,7 +2291,7 @@ namespace Kinovea.ScreenManager
             if (!m_FrameServer.Loaded || m_FrameServer.Metadata.DrawingInitializing || isCurrentlyPlaying)
                 return;
 
-            buttonPlay.Image = Resources.flatpause3b;
+            buttonPlay.Image = FluentIcons.Get(FluentIcon.Pause);
             StartMultimediaTimer(currentTimestamp);
         }
 
@@ -3580,7 +3597,7 @@ namespace Kinovea.ScreenManager
                 expectedTimestamp, currentTimestamp);
             
             StopMultimediaTimer();
-            buttonPlay.Image = Resources.flatplay;
+            buttonPlay.Image = FluentIcons.Get(FluentIcon.Play);
 
             lock (lockBusyRendering)
             {

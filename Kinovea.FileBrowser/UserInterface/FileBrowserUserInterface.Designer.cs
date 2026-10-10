@@ -139,7 +139,7 @@ namespace Kinovea.FileBrowser
       this.lvExplorer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lvExplorer.ForeColor = System.Drawing.Color.Black;
       this.lvExplorer.FullRowSelect = true;
-      this.lvExplorer.GridLines = true;
+      this.lvExplorer.GridLines = false;
       this.lvExplorer.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
       this.lvExplorer.HideSelection = false;
       this.lvExplorer.Location = new System.Drawing.Point(3, 3);
@@ -222,7 +222,7 @@ namespace Kinovea.FileBrowser
       this.lvCaptured.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lvCaptured.ForeColor = System.Drawing.Color.Black;
       this.lvCaptured.FullRowSelect = true;
-      this.lvCaptured.GridLines = true;
+      this.lvCaptured.GridLines = false;
       this.lvCaptured.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
       this.lvCaptured.HideSelection = false;
       this.lvCaptured.Location = new System.Drawing.Point(4, 387);

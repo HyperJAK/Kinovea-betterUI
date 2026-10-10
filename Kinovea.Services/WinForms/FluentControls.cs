@@ -5,6 +5,43 @@ using System.Windows.Forms;
 
 namespace Kinovea.Services
 {
+    /// <summary>Event-driven empty-folder view; no polling or animation during playback.</summary>
+    public class MediaEmptyState : UserControl
+    {
+        private readonly Label heading = new Label { AutoSize = false, TextAlign = ContentAlignment.MiddleCenter };
+        private readonly Label hint = new Label { AutoSize = false, TextAlign = ContentAlignment.MiddleCenter };
+        private readonly FluentButton open = new FluentButton { Accent = true };
+        public event EventHandler OpenAsked;
+        public string Heading { get { return heading.Text; } set { heading.Text = value; } }
+        public string Hint { get { return hint.Text; } set { hint.Text = value; } }
+        public string ActionText { get { return open.Text; } set { open.Text = value; open.AccessibleName = value; } }
+
+        public MediaEmptyState()
+        {
+            Dock = DockStyle.Fill;
+            heading.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            hint.Font = new Font("Segoe UI", 10F);
+            open.Font = new Font("Segoe UI", 10F);
+            open.Click += (sender, args) => { if (OpenAsked != null) OpenAsked(this, args); };
+            Controls.Add(heading); Controls.Add(hint); Controls.Add(open);
+            DarkTheme.Apply(this);
+            hint.ForeColor = DarkTheme.Muted;
+        }
+
+        protected override void OnLayout(LayoutEventArgs e)
+        {
+            base.OnLayout(e);
+            float scale = DeviceDpi / 96F;
+            int width = Math.Max(0, Math.Min((int)(520 * scale), ClientSize.Width - (int)(32 * scale)));
+            int left = (ClientSize.Width - width) / 2;
+            int top = Math.Max(0, (ClientSize.Height - (int)(180 * scale)) / 2);
+            heading.SetBounds(left, top, width, (int)(64 * scale));
+            hint.SetBounds(left, heading.Bottom + (int)(8 * scale), width, (int)(48 * scale));
+            int buttonWidth = Math.Min(width, (int)(164 * scale));
+            open.SetBounds((ClientSize.Width - buttonWidth) / 2, hint.Bottom + (int)(16 * scale), buttonWidth, (int)(38 * scale));
+        }
+    }
+
     public class FluentPanel : Panel
     {
         public FluentPanel()
