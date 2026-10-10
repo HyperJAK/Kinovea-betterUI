@@ -73,13 +73,35 @@ class Check {
     static int checks;
     static void Assert(bool value, string message) { checks++; if (!value) throw new Exception(message); }
     [STAThread] static void Main(string[] args) {
-        try { Run(args); }
+        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.ThreadException += (sender, e) => {
+            Console.Error.WriteLine(e.Exception);
+            Environment.ExitCode = 1;
+            Application.ExitThread();
+        };
+        // Shown windows and ToolStrip dropdowns need a real UI message loop,
+        // including its normal shutdown. DoEvents after disposing them can
+        // dispatch native callbacks to already-destroyed fixture handles.
+        try {
+            using (var context = new ApplicationContext()) {
+                EventHandler run = null;
+                run = (sender, e) => {
+                    Application.Idle -= run;
+                    try { Run(args); }
+                    catch (Exception error) { Console.Error.WriteLine(error); Environment.ExitCode = 1; }
+                    finally { context.ExitThread(); }
+                };
+                Application.Idle += run;
+                try { Application.Run(context); }
+                finally { Application.Idle -= run; }
+            }
+        }
         catch (Exception error) { Console.Error.WriteLine(error); Environment.ExitCode = 1; }
     }
     static void Run(string[] args) {
-        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
+        Assert(Application.MessageLoop, "Native UI checks require an active message loop");
         foreach (int frames in new [] {1, 2, 15, 16, 30, 31, 1200}) {
             PlayerScreen player = new PlayerScreen();
             player.FrameServer.Metadata.SelectionEnd = (frames - 1) * 40;
@@ -139,8 +161,8 @@ class Check {
             DarkTheme.Apply(form);
             Assert(form.BackColor == DarkTheme.Background, "Repeated theme application failed");
         }
+        Assert(Application.OpenForms.Count == 0, "All fixture windows must close before UI shutdown");
         Console.WriteLine("Passed " + checks + " UI and extraction checks.");
-        Application.DoEvents();
     }
 }
 '@
@@ -168,7 +190,11 @@ class Check {
     & $compiler /nologo /target:exe "/out:$executable" /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Core.dll /r:System.Data.dll @sources
     if ($LASTEXITCODE -ne 0) { throw 'UI compilation failed' }
     if ($PreviewDirectory) { & $executable $PreviewDirectory } else { & $executable }
-    if ($LASTEXITCODE -ne 0) { throw 'UI validation failed' }
+    if ($LASTEXITCODE -ne 0) {
+        $exitCode = $LASTEXITCODE
+        $hexCode = [BitConverter]::ToUInt32([BitConverter]::GetBytes([int]$exitCode), 0).ToString('X8')
+        throw "UI validation failed (exit code $exitCode / 0x$hexCode)"
+    }
 } finally {
     # Exact, task-owned temporary files only.
     if (Test-Path (Join-Path $output 'Check.cs')) { Remove-Item -LiteralPath (Join-Path $output 'Check.cs') }
