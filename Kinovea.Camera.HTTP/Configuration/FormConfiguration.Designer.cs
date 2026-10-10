@@ -48,14 +48,14 @@ namespace Kinovea.Camera.HTTP
         /// </summary>
         private void InitializeComponent()
         {
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.groupBox1 = new Kinovea.Services.FluentGroupBox();
       this.tbAlias = new System.Windows.Forms.TextBox();
       this.lblSystemName = new System.Windows.Forms.Label();
-      this.btnIcon = new System.Windows.Forms.Button();
-      this.btnApply = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.gpParameters = new System.Windows.Forms.GroupBox();
-      this.btnTest = new System.Windows.Forms.Button();
+      this.btnIcon = new Kinovea.Services.FluentButton();
+      this.btnApply = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.gpParameters = new Kinovea.Services.FluentGroupBox();
+      this.btnTest = new Kinovea.Services.FluentButton();
       this.groupBox1.SuspendLayout();
       this.SuspendLayout();
       // 

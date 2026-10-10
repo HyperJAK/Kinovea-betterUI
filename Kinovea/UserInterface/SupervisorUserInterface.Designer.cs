@@ -29,7 +29,7 @@ namespace Kinovea.Root
         private void InitializeComponent()
         {
       this.splitWorkSpace = new System.Windows.Forms.SplitContainer();
-      this.buttonCloseExplo = new System.Windows.Forms.Button();
+      this.buttonCloseExplo = new Kinovea.Services.FluentButton();
       ((System.ComponentModel.ISupportInitialize)(this.splitWorkSpace)).BeginInit();
       this.splitWorkSpace.Panel1.SuspendLayout();
       this.splitWorkSpace.SuspendLayout();

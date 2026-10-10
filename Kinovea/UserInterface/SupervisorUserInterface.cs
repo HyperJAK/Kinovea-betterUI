@@ -33,6 +33,8 @@ namespace Kinovea.Root
         #region Members
         private RootKernel rootKernel;
         private bool initializing = true;
+        private readonly FluentPanel librarySurface = new FluentPanel { Dock = DockStyle.Fill };
+        private readonly FluentPanel viewerSurface = new FluentPanel { Dock = DockStyle.Fill };
         #endregion
 
         #region Construction Destruction
@@ -40,6 +42,27 @@ namespace Kinovea.Root
         {
             rootKernel = _RootKernel;
             InitializeComponent();
+            Padding = new Padding(12, 8, 12, 12);
+            splitWorkSpace.BorderStyle = BorderStyle.None;
+            splitWorkSpace.SplitterWidth = 12;
+            splitWorkSpace.Panel1.Controls.Add(librarySurface);
+            splitWorkSpace.Panel2.Controls.Add(viewerSurface);
+            var libraryHeader = new Panel { Dock = DockStyle.Top, Height = 36 };
+            var heading = new Label
+            {
+                Text = Kinovea.Root.Languages.RootLang.NavigationPane,
+                Dock = DockStyle.Fill,
+                TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
+                Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold)
+            };
+            libraryHeader.Controls.Add(heading);
+            buttonCloseExplo.Image = null;
+            buttonCloseExplo.Text = "\u00d7";
+            buttonCloseExplo.Dock = DockStyle.Right;
+            buttonCloseExplo.Width = 32;
+            buttonCloseExplo.AccessibleName = Kinovea.ScreenManager.Languages.ScreenManagerLang.Generic_Close;
+            libraryHeader.Controls.Add(buttonCloseExplo);
+            librarySurface.Controls.Add(libraryHeader);
             
             splitWorkSpace.SplitterDistance = (int)(splitWorkSpace.Width * WindowManager.ActiveWindow.ExplorerSplitterRatio);
             splitWorkSpace.SplitterMoved += SplitWorkSpace_SplitterMoved;
@@ -53,16 +76,11 @@ namespace Kinovea.Root
         {
             SuspendLayout();
 
-            splitWorkSpace.Panel1.Controls.Add(navigationPanel);
-            splitWorkSpace.Panel2.Controls.Add(screenManager);
-            
-            int topMargin = 2;
-            navigationPanel.Top = topMargin;
-            navigationPanel.Left = 0;
-            navigationPanel.Width = splitWorkSpace.Panel1.Width;
-            navigationPanel.Height = splitWorkSpace.Panel1.Height - topMargin;
-            navigationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-
+            librarySurface.Controls.Add(navigationPanel);
+            viewerSurface.Controls.Add(screenManager);
+            navigationPanel.Dock = DockStyle.Fill;
+            navigationPanel.BringToFront();
+            screenManager.Dock = DockStyle.Fill;
             ResumeLayout();
             initializing = false;
         }

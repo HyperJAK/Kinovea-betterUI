@@ -1,3 +1,4 @@
+param([string]$PreviewDirectory)
 $ErrorActionPreference = 'Stop'
 $workspace = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $output = Join-Path ([IO.Path]::GetTempPath()) ('Kinovea-UI-check-' + [Guid]::NewGuid())
@@ -20,7 +21,10 @@ namespace Kinovea.ScreenManager {
     public class PlayerScreen { public Server FrameServer = new Server(); }
 }
 namespace Kinovea.ScreenManager.Languages {
+    public class PreviewResources { public string GetString(string name) { return "Choose PNG for lossless images."; } }
     public static class ScreenManagerLang {
+        public static readonly PreviewResources ResourceManager = new PreviewResources();
+        public const string Generic_Close = "Close";
         public const string formConfigureExport_ImageSequence = "Image sequence";
         public const string Generic_Configuration = "Configuration";
         public const string Generic_Save = "Save";
@@ -32,10 +36,50 @@ namespace Kinovea.ScreenManager.Languages {
         public const string dlgRafaleExport_LabelTotalFrames = "{0} frames";
     }
 }
+namespace Kinovea.Services {
+    public class PreviewWindow { public float ExplorerSplitterRatio = .25F; public bool ExplorerVisible = true; }
+    public static class WindowManager { public static PreviewWindow ActiveWindow = new PreviewWindow(); }
+    public static class LaunchSettingsManager { public static bool ExplorerVisible = true; }
+    public static class NotificationCenter { public static event EventHandler ToggleNavigationPane; public static void RaisePreferencesOpened() { } }
+    public class PreviewPreferences { public int PreferencePage = 1; }
+    public static class PreferencesManager {
+        public static PreviewPreferences GeneralPreferences = new PreviewPreferences();
+        public static void BeforeRead() { } public static void SuspendSave() { } public static void ResumeSave() { }
+    }
+}
+namespace Kinovea.Root {
+    public class RootKernel { }
+    public class PreviewPreferencePanel : UserControl, IPreferencePanel {
+        private string description;
+        public PreviewPreferencePanel(string name) {
+            description = name; Size = new Size(490, 322);
+            Controls.Add(new Label { Text = name, Location = new Point(16, 16), AutoSize = true, Font = new Font("Segoe UI", 14F, FontStyle.Bold) });
+            Controls.Add(new Label { Text = "Sample page content for native layout validation", Location = new Point(16, 76), AutoSize = true });
+        }
+        public string Description { get { return description; } }
+        public Bitmap Icon { get { return FluentIcons.Get(FluentIcon.Video); } }
+        public System.Collections.Generic.List<PreferenceTab> Tabs { get { return new System.Collections.Generic.List<PreferenceTab>(); } }
+        public void OpenTab(PreferenceTab tab) { } public void CommitChanges() { } public void Close() { }
+    }
+    public class PreferencePanelGeneral : PreviewPreferencePanel { public PreferencePanelGeneral() : base("General") { } }
+    public class PreferencePanelPlayer : PreviewPreferencePanel { public PreferencePanelPlayer() : base("Playback") { } }
+    public class PreferencePanelCapture : PreviewPreferencePanel { public PreferencePanelCapture() : base("Capture") { } }
+    public class PreferencePanelDrawings : PreviewPreferencePanel { public PreferencePanelDrawings() : base("Drawings") { } }
+    public class PreferencePanelKeyboard : PreviewPreferencePanel { public PreferencePanelKeyboard() : base("Keyboard") { } }
+}
+namespace Kinovea.Root.Languages { public static class RootLang { public const string NavigationPane = "Library"; public const string dlgPreferences_Title = "Preferences"; public const string Generic_Save = "Save"; public const string Generic_Cancel = "Cancel"; } }
+namespace Kinovea.Root.Properties { public static class Resources { public static Image close2d_16 { get { return null; } } } }
 class Check {
     static int checks;
     static void Assert(bool value, string message) { checks++; if (!value) throw new Exception(message); }
-    [STAThread] static void Main() {
+    [STAThread] static void Main(string[] args) {
+        try { Run(args); }
+        catch (Exception error) { Console.Error.WriteLine(error); Environment.ExitCode = 1; }
+    }
+    static void Run(string[] args) {
+        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
         foreach (int frames in new [] {1, 2, 15, 16, 30, 31, 1200}) {
             PlayerScreen player = new PlayerScreen();
             player.FrameServer.Metadata.SelectionEnd = (frames - 1) * 40;
@@ -52,6 +96,38 @@ class Check {
             }
         }
         using (var form = new ThemedForm()) {
+            var button = new FluentButton { Size = new Size(120, 36), Accent = true, Text = "Save" };
+            form.Controls.Add(button);
+            DarkTheme.Apply(form);
+            using (var bitmap = new Bitmap(button.Width, button.Height)) {
+                button.DrawToBitmap(bitmap, button.ClientRectangle);
+                Assert(bitmap.GetPixel(0, 0).ToArgb() == form.BackColor.ToArgb(), "Rounded button corner must expose its parent");
+                Assert(bitmap.GetPixel(10, 18).ToArgb() == DarkTheme.Accent.ToArgb(), "Accent button fill missing");
+                button.Enabled = false;
+                button.DrawToBitmap(bitmap, button.ClientRectangle);
+                Assert(bitmap.GetPixel(10, 18).ToArgb() == DarkTheme.Surface.ToArgb(), "Disabled button fill missing");
+            }
+            var tabs = new FluentTabControl { Size = new Size(400, 240) };
+            tabs.TabPages.Add("Files"); tabs.TabPages.Add("Cameras");
+            form.Controls.Add(tabs);
+            tabs.SelectedIndex = 1;
+            Assert(tabs.SelectedTab.Text == "Cameras", "Native tab selection failed");
+        }
+        foreach (FluentIcon icon in Enum.GetValues(typeof(FluentIcon)))
+            Assert(object.ReferenceEquals(FluentIcons.Get(icon), FluentIcons.Get(icon)), "Toolbar icons must be cached");
+        foreach (float scale in new [] {1F, 1.25F, 1.5F, 2F}) {
+            using (var dialog = new FormConfigureExportImageSequence(new PlayerScreen())) {
+                dialog.Scale(new SizeF(scale, scale));
+                foreach (Control child in dialog.Controls)
+                    Assert(dialog.ClientRectangle.Contains(child.Bounds), "Dialog control clipped after scaling");
+                var group = dialog.Controls.OfType<GroupBox>().Single();
+                foreach (Control child in group.Controls)
+                    Assert(group.ClientRectangle.Contains(child.Bounds), "Extraction field clipped after scaling");
+            }
+        }
+        FluentPreview.VerifyWorkspace();
+        if (args.Length > 0) FluentPreview.Render(args[0]);
+        using (var form = new ThemedForm()) {
             var strip = new ToolStrip(); form.Controls.Add(strip);
             DarkTheme.Apply(form);
             var button = new Button(); form.Controls.Add(button);
@@ -64,6 +140,7 @@ class Check {
             Assert(form.BackColor == DarkTheme.Background, "Repeated theme application failed");
         }
         Console.WriteLine("Passed " + checks + " UI and extraction checks.");
+        Application.DoEvents();
     }
 }
 '@
@@ -71,9 +148,26 @@ class Check {
     [IO.File]::WriteAllText($stubPath, $stub)
     $compiler = Join-Path $env:WINDIR 'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
     $executable = Join-Path $output 'Check.exe'
-    & $compiler /nologo /target:exe "/out:$executable" /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Core.dll /r:System.Data.dll $stubPath (Join-Path $workspace 'Kinovea.Services/WinForms/DarkTheme.cs') (Join-Path $workspace 'Kinovea.ScreenManager/Exporters/Images/FormConfigureExportImageSequence.cs') (Join-Path $workspace 'Kinovea.ScreenManager/Exporters/Images/FormConfigureExportImageSequence.Designer.cs')
+    $sources = @(
+        $stubPath,
+        (Join-Path $workspace 'Kinovea.Services/WinForms/DarkTheme.cs'),
+        (Join-Path $workspace 'Kinovea.Services/WinForms/FluentControls.cs'),
+        (Join-Path $workspace 'Kinovea.Services/WinForms/FluentIcons.cs'),
+        (Join-Path $workspace 'Kinovea.ScreenManager/Exporters/Images/FormConfigureExportImageSequence.cs'),
+        (Join-Path $workspace 'Kinovea.ScreenManager/Exporters/Images/FormConfigureExportImageSequence.Designer.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/SupervisorUserInterface.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/SupervisorUserInterface.Designer.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/PreferencePanelButtton.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/PreferencePanelButtton.Designer.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/PreferencePanels/IPreferencePanel.cs'),
+        (Join-Path $workspace 'Kinovea.Services/Preferences/PreferenceTab.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/FormPreferences2.cs'),
+        (Join-Path $workspace 'Kinovea/UserInterface/FormPreferences2.Designer.cs'),
+        (Join-Path $workspace 'Tools/Validation/FluentPreview.cs')
+    )
+    & $compiler /nologo /target:exe "/out:$executable" /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Core.dll /r:System.Data.dll @sources
     if ($LASTEXITCODE -ne 0) { throw 'UI compilation failed' }
-    & $executable
+    if ($PreviewDirectory) { & $executable $PreviewDirectory } else { & $executable }
     if ($LASTEXITCODE -ne 0) { throw 'UI validation failed' }
 } finally {
     # Exact, task-owned temporary files only.

@@ -48,12 +48,12 @@ namespace Kinovea.Camera.FrameGenerator
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnApply = new System.Windows.Forms.Button();
-      this.btnIcon = new System.Windows.Forms.Button();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.btnApply = new Kinovea.Services.FluentButton();
+      this.btnIcon = new Kinovea.Services.FluentButton();
+      this.groupBox1 = new Kinovea.Services.FluentGroupBox();
       this.tbAlias = new System.Windows.Forms.TextBox();
       this.lblSystemName = new System.Windows.Forms.Label();
-      this.gbProperties = new System.Windows.Forms.GroupBox();
+      this.gbProperties = new Kinovea.Services.FluentGroupBox();
       this.lblAuto = new System.Windows.Forms.Label();
       this.cmbFormat = new System.Windows.Forms.ComboBox();
       this.lblColorSpace = new System.Windows.Forms.Label();

@@ -30,18 +30,18 @@
         {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWorkspaceManager));
-      this.grpWorkspaces = new System.Windows.Forms.GroupBox();
-      this.btnCreateShortcut2 = new System.Windows.Forms.Button();
-      this.btnRename = new System.Windows.Forms.Button();
+      this.grpWorkspaces = new Kinovea.Services.FluentGroupBox();
+      this.btnCreateShortcut2 = new Kinovea.Services.FluentButton();
+      this.btnRename = new Kinovea.Services.FluentButton();
       this.olvWorkspaces = new BrightIdeasSoftware.ObjectListView();
-      this.btnDelete = new System.Windows.Forms.Button();
-      this.btnAdd = new System.Windows.Forms.Button();
+      this.btnDelete = new Kinovea.Services.FluentButton();
+      this.btnAdd = new Kinovea.Services.FluentButton();
       this.imgListStatus = new System.Windows.Forms.ImageList(this.components);
-      this.btnClose = new System.Windows.Forms.Button();
-      this.grpWindowList = new System.Windows.Forms.GroupBox();
+      this.btnClose = new Kinovea.Services.FluentButton();
+      this.grpWindowList = new Kinovea.Services.FluentGroupBox();
       this.olvWindows = new BrightIdeasSoftware.ObjectListView();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-      this.btnCreateShortcut = new System.Windows.Forms.Button();
+      this.btnCreateShortcut = new Kinovea.Services.FluentButton();
       this.grpWorkspaces.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.olvWorkspaces)).BeginInit();
       this.grpWindowList.SuspendLayout();

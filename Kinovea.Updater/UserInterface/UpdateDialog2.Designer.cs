@@ -49,14 +49,14 @@ namespace Kinovea.Updater
 		private void InitializeComponent()
 		{
       this.components = new System.ComponentModel.Container();
-      this.btnSoftware = new System.Windows.Forms.Button();
+      this.btnSoftware = new Kinovea.Services.FluentButton();
       this.labelInfos = new System.Windows.Forms.Label();
       this.lblNewVersion = new System.Windows.Forms.Label();
       this.lblChangeLog = new System.Windows.Forms.Label();
       this.rtbxChangeLog = new System.Windows.Forms.RichTextBox();
       this.lnkKinovea = new System.Windows.Forms.LinkLabel();
-      this.btnDownload = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnDownload = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.bgwkrDownloader = new System.ComponentModel.BackgroundWorker();
       this.SuspendLayout();

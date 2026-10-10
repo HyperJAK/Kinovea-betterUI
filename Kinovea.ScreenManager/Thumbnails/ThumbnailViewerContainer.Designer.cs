@@ -49,12 +49,12 @@ namespace Kinovea.ScreenManager
         private void InitializeComponent()
         {
       this.splitMain = new System.Windows.Forms.SplitContainer();
-      this.btnForward = new System.Windows.Forms.Button();
-      this.btnBack = new System.Windows.Forms.Button();
-      this.btnUp = new System.Windows.Forms.Button();
+      this.btnForward = new Kinovea.Services.FluentButton();
+      this.btnBack = new Kinovea.Services.FluentButton();
+      this.btnUp = new Kinovea.Services.FluentButton();
       this.lblAddress = new System.Windows.Forms.Label();
       this.viewerSelector = new Kinovea.ScreenManager.ViewerSelector();
-      this.btnCloseFullscreen = new System.Windows.Forms.Button();
+      this.btnCloseFullscreen = new Kinovea.Services.FluentButton();
       ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
       this.splitMain.Panel1.SuspendLayout();
       this.splitMain.SuspendLayout();

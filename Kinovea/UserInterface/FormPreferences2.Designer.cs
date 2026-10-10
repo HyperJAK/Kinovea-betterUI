@@ -49,8 +49,8 @@ namespace Kinovea.Root
 		private void InitializeComponent()
 		{
       this.pnlButtons = new System.Windows.Forms.Panel();
-      this.btnSave = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnSave = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.SuspendLayout();
       // 
       // pnlButtons

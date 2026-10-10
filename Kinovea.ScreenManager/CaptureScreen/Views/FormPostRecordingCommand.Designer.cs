@@ -30,13 +30,13 @@
         {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPostRecordingCommand));
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.gpCommand = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.gpCommand = new Kinovea.Services.FluentGroupBox();
       this.cbEnable = new System.Windows.Forms.CheckBox();
       this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
-      this.btnInsertVariable = new System.Windows.Forms.Button();
-      this.btnSaveAndContinue = new System.Windows.Forms.Button();
+      this.btnInsertVariable = new Kinovea.Services.FluentButton();
+      this.btnSaveAndContinue = new Kinovea.Services.FluentButton();
       this.gpCommand.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
       this.SuspendLayout();

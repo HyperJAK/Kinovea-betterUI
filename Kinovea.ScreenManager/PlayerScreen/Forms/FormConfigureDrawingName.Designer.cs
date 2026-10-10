@@ -48,9 +48,9 @@ namespace Kinovea.ScreenManager
 		/// </summary>
 		private void InitializeComponent()
 		{
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpIdentifier = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpIdentifier = new Kinovea.Services.FluentGroupBox();
       this.tbName = new System.Windows.Forms.TextBox();
       this.grpIdentifier.SuspendLayout();
       this.SuspendLayout();

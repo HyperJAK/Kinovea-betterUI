@@ -31,17 +31,17 @@ namespace Kinovea.ScreenManager
         {
       this.lblTimecode = new System.Windows.Forms.Label();
       this.tbName = new System.Windows.Forms.TextBox();
-      this.btnColor = new System.Windows.Forms.Button();
+      this.btnColor = new Kinovea.Services.FluentButton();
       this.rtbComment = new System.Windows.Forms.RichTextBox();
-      this.btnSidebar = new System.Windows.Forms.Button();
+      this.btnSidebar = new Kinovea.Services.FluentButton();
       this.pnlComment = new System.Windows.Forms.Panel();
-      this.btnComments = new System.Windows.Forms.Button();
-      this.btnTopbar = new System.Windows.Forms.Button();
-      this.btnRightBar = new System.Windows.Forms.Button();
-      this.btnBottomBar = new System.Windows.Forms.Button();
-      this.button2 = new System.Windows.Forms.Button();
-      this.button1 = new System.Windows.Forms.Button();
-      this.btnClose = new System.Windows.Forms.Button();
+      this.btnComments = new Kinovea.Services.FluentButton();
+      this.btnTopbar = new Kinovea.Services.FluentButton();
+      this.btnRightBar = new Kinovea.Services.FluentButton();
+      this.btnBottomBar = new Kinovea.Services.FluentButton();
+      this.button2 = new Kinovea.Services.FluentButton();
+      this.button1 = new Kinovea.Services.FluentButton();
+      this.btnClose = new Kinovea.Services.FluentButton();
       this.pbThumbnail = new System.Windows.Forms.PictureBox();
       this.pnlComment.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).BeginInit();

@@ -48,11 +48,11 @@ namespace Kinovea.Root
         /// </summary>
         private void InitializeComponent()
         {
-      this.tabSubPages = new System.Windows.Forms.TabControl();
+      this.tabSubPages = new Kinovea.Services.FluentTabControl();
       this.tabGeneral = new System.Windows.Forms.TabPage();
       this.lblPlaybackKVA = new System.Windows.Forms.Label();
       this.tbPlaybackKVA = new System.Windows.Forms.TextBox();
-      this.btnPlaybackKVA = new System.Windows.Forms.Button();
+      this.btnPlaybackKVA = new Kinovea.Services.FluentButton();
       this.chkDetectImageSequences = new System.Windows.Forms.CheckBox();
       this.tabMemory = new System.Windows.Forms.TabPage();
       this.lblCacheMemoryDescription = new System.Windows.Forms.Label();
@@ -70,15 +70,15 @@ namespace Kinovea.Root
       this.chkSyncByMotion = new System.Windows.Forms.CheckBox();
       this.chkLockSpeeds = new System.Windows.Forms.CheckBox();
       this.tabJumping = new System.Windows.Forms.TabPage();
-      this.grpShortcut = new System.Windows.Forms.GroupBox();
-      this.btnDefault = new System.Windows.Forms.Button();
+      this.grpShortcut = new Kinovea.Services.FluentGroupBox();
+      this.btnDefault = new Kinovea.Services.FluentButton();
       this.lvCommands = new System.Windows.Forms.ListView();
       this.colCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.colKey = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.tbHotkey = new Kinovea.Services.TextboxHotkey();
-      this.btnClear = new System.Windows.Forms.Button();
-      this.btnApply = new System.Windows.Forms.Button();
-      this.grpJumping = new System.Windows.Forms.GroupBox();
+      this.btnClear = new Kinovea.Services.FluentButton();
+      this.btnApply = new Kinovea.Services.FluentButton();
+      this.grpJumping = new Kinovea.Services.FluentGroupBox();
       this.cbLargeJump = new System.Windows.Forms.ComboBox();
       this.cbSmallJump = new System.Windows.Forms.ComboBox();
       this.nudLargeJump = new System.Windows.Forms.NumericUpDown();

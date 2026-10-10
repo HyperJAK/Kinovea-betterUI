@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpIntrinsics = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpIntrinsics = new Kinovea.Services.FluentGroupBox();
       this.lblCameraPosition = new System.Windows.Forms.Label();
       this.lblFocalLength = new System.Windows.Forms.Label();
       this.lblSensorWidth = new System.Windows.Forms.Label();
-      this.gpControlPoints = new System.Windows.Forms.GroupBox();
-      this.gpValidationMode = new System.Windows.Forms.GroupBox();
+      this.gpControlPoints = new Kinovea.Services.FluentGroupBox();
+      this.gpValidationMode = new Kinovea.Services.FluentGroupBox();
       this.rbCompute3D = new System.Windows.Forms.RadioButton();
       this.rbFix3D = new System.Windows.Forms.RadioButton();
       this.rbFix1D = new System.Windows.Forms.RadioButton();
       this.olvControlPoints = new BrightIdeasSoftware.ObjectListView();
-      this.btnCSV = new System.Windows.Forms.Button();
+      this.btnCSV = new Kinovea.Services.FluentButton();
       this.lblCameraDistance = new System.Windows.Forms.Label();
       this.grpIntrinsics.SuspendLayout();
       this.gpControlPoints.SuspendLayout();

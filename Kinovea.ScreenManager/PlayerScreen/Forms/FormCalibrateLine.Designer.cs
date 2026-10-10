@@ -50,9 +50,9 @@ namespace Kinovea.ScreenManager
 		/// </summary>
 		private void InitializeComponent()
         {
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.grpConfig = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.grpConfig = new Kinovea.Services.FluentGroupBox();
       this.nudMeasure = new System.Windows.Forms.NumericUpDown();
       this.cbUnit = new System.Windows.Forms.ComboBox();
       this.lblRealSize = new System.Windows.Forms.Label();

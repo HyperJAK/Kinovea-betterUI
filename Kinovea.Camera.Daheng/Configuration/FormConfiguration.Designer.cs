@@ -48,18 +48,18 @@ namespace Kinovea.Camera.Daheng
         /// </summary>
         private void InitializeComponent()
         {
-      this.gbProperties = new System.Windows.Forms.GroupBox();
+      this.gbProperties = new Kinovea.Services.FluentGroupBox();
       this.cmbFormat = new System.Windows.Forms.ComboBox();
       this.lblColorSpace = new System.Windows.Forms.Label();
       this.lblResultingFramerateValue = new System.Windows.Forms.Label();
       this.lblResultingFramerate = new System.Windows.Forms.Label();
       this.lblAuto = new System.Windows.Forms.Label();
-      this.groupBox2 = new System.Windows.Forms.GroupBox();
+      this.groupBox2 = new Kinovea.Services.FluentGroupBox();
       this.tbAlias = new System.Windows.Forms.TextBox();
       this.lblSystemName = new System.Windows.Forms.Label();
-      this.btnIcon = new System.Windows.Forms.Button();
-      this.btnApply = new System.Windows.Forms.Button();
-      this.btnReconnect = new System.Windows.Forms.Button();
+      this.btnIcon = new Kinovea.Services.FluentButton();
+      this.btnApply = new Kinovea.Services.FluentButton();
+      this.btnReconnect = new Kinovea.Services.FluentButton();
       this.gbProperties.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.SuspendLayout();

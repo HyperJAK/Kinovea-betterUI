@@ -49,13 +49,13 @@ namespace Kinovea.Camera.HTTP
         private void InitializeComponent()
         {
       this.tbURL = new System.Windows.Forms.TextBox();
-      this.gpURL = new System.Windows.Forms.GroupBox();
+      this.gpURL = new Kinovea.Services.FluentGroupBox();
       this.lblUser = new System.Windows.Forms.Label();
       this.tbUser = new System.Windows.Forms.TextBox();
       this.tbPassword = new System.Windows.Forms.TextBox();
       this.lblPassword = new System.Windows.Forms.Label();
-      this.gpAuthentication = new System.Windows.Forms.GroupBox();
-      this.gpNetwork = new System.Windows.Forms.GroupBox();
+      this.gpAuthentication = new Kinovea.Services.FluentGroupBox();
+      this.gpNetwork = new Kinovea.Services.FluentGroupBox();
       this.cbFormat = new System.Windows.Forms.ComboBox();
       this.lblFormat = new System.Windows.Forms.Label();
       this.tbPort = new System.Windows.Forms.TextBox();

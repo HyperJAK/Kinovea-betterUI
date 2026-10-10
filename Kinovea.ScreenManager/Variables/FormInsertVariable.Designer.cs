@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.btnOk = new System.Windows.Forms.Button();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.btnOk = new Kinovea.Services.FluentButton();
       this.olvVariables = new BrightIdeasSoftware.ObjectListView();
       ((System.ComponentModel.ISupportInitialize)(this.olvVariables)).BeginInit();
       this.SuspendLayout();

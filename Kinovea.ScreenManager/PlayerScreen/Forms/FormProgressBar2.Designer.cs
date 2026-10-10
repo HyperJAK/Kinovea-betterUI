@@ -50,7 +50,7 @@ namespace Kinovea.ScreenManager
 		{
 			this.progressBar = new System.Windows.Forms.ProgressBar();
 			this.labelInfos = new System.Windows.Forms.Label();
-			this.btnCancel = new System.Windows.Forms.Button();
+			this.btnCancel = new Kinovea.Services.FluentButton();
 			this.SuspendLayout();
 			// 
 			// progressBar

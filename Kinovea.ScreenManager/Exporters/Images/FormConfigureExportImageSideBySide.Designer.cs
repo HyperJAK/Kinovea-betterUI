@@ -29,11 +29,11 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-      this.grpboxConfig = new System.Windows.Forms.GroupBox();
+      this.grpboxConfig = new Kinovea.Services.FluentGroupBox();
       this.rbVertical = new System.Windows.Forms.RadioButton();
       this.rbHorizontal = new System.Windows.Forms.RadioButton();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.grpboxConfig.SuspendLayout();
       this.SuspendLayout();
       // 

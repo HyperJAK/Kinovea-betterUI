@@ -75,7 +75,19 @@ namespace Kinovea.Root
         {
             InitializeComponent();
 
-            this.Text = "   " + RootLang.dlgPreferences_Title;
+            this.Text = RootLang.dlgPreferences_Title;
+            ClientSize = new Size(780, 510);
+            pnlButtons.Dock = DockStyle.None;
+            pnlButtons.Location = new Point(16, 64);
+            pnlButtons.Size = new Size(184, 380);
+            pnlButtons.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            var heading = new Label { Text = RootLang.dlgPreferences_Title, Location = new Point(24, 18), AutoSize = true, Font = new Font("Segoe UI", 18F, FontStyle.Bold) };
+            Controls.Add(heading);
+            btnSave.Size = btnCancel.Size = new Size(108, 34);
+            btnCancel.Location = new Point(ClientSize.Width - 132, ClientSize.Height - 50);
+            btnSave.Location = new Point(btnCancel.Left - 120, btnCancel.Top);
+            AcceptButton = btnSave;
+            CancelButton = btnCancel;
             btnSave.Text = RootLang.Generic_Save;
             btnCancel.Text = RootLang.Generic_Cancel;
             ImportPages();
@@ -105,7 +117,7 @@ namespace Kinovea.Root
         {
             pnlButtons.Controls.Clear();
             
-            int nextLeft = 0;
+            int nextTop = 0;
             for(int i=0;i<pages.Count;i++)
             {
                 IPreferencePanel page = pages[i] as IPreferencePanel;
@@ -116,14 +128,14 @@ namespace Kinovea.Root
                 PreferencePanelButtton ppb = new PreferencePanelButtton(page);
                 ppb.Click += new EventHandler(preferencePanelButton_Click);
                     
-                ppb.Left = nextLeft;
-                nextLeft += ppb.Width;
+                ppb.Top = nextTop;
+                nextTop += ppb.Height + 4;
                     
                 pnlButtons.Controls.Add(ppb);
                 buttons.Add(ppb);
                     
                 // Page
-                page.Location = new Point(14, this.pnlButtons.Bottom + 14);
+                page.Location = new Point(220, 64);
                 page.Visible = false;
                 this.Controls.Add((UserControl)page);
             }

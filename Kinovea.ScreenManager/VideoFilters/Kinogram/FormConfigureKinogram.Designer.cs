@@ -32,7 +32,7 @@ namespace Kinovea.ScreenManager
       this.label1 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
       this.lblCropSize = new System.Windows.Forms.Label();
-      this.grpConfig = new System.Windows.Forms.GroupBox();
+      this.grpConfig = new Kinovea.Services.FluentGroupBox();
       this.label2 = new System.Windows.Forms.Label();
       this.nudCropWidth = new System.Windows.Forms.NumericUpDown();
       this.nudCropHeight = new System.Windows.Forms.NumericUpDown();
@@ -41,9 +41,9 @@ namespace Kinovea.ScreenManager
       this.lblColumns = new System.Windows.Forms.Label();
       this.lblFrameInterval = new System.Windows.Forms.Label();
       this.lblTotal = new System.Windows.Forms.Label();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.btnApply = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.btnApply = new Kinovea.Services.FluentButton();
       this.grpConfig.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudCropWidth)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudCropHeight)).BeginInit();

@@ -34,9 +34,9 @@ namespace Kinovea.ScreenManager
       this.label1 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
       this.lblImageSize = new System.Windows.Forms.Label();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
+      this.groupBox1 = new Kinovea.Services.FluentGroupBox();
       ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
       this.groupBox1.SuspendLayout();

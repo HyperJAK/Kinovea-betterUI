@@ -46,14 +46,14 @@ namespace Kinovea.ScreenManager
 
             InitializeComponent();
             InitializeCulture();
-            trkDecimate.Visible = false;
             intervalInput = new NumericUpDown
             {
                 Minimum = 1,
                 Maximum = totalFrames,
                 Value = 1,
-                Location = new Point(25, 40),
-                Size = new Size(140, 28),
+                Location = new Point(24, 76),
+                Size = new Size(140, 32),
+                Font = new Font("Segoe UI", 11F),
                 TabIndex = 0,
                 ThousandsSeparator = true,
                 AccessibleName = ScreenManagerLang.formConfigureExport_ImageSequence
@@ -65,10 +65,19 @@ namespace Kinovea.ScreenManager
             };
             grpboxConfig.Controls.Add(intervalInput);
             UpdateLabels();
+            Shown += (sender, args) =>
+            {
+                lblQualityHint.ForeColor = Kinovea.Services.DarkTheme.Muted;
+                lblTimeDecimation.ForeColor = Kinovea.Services.DarkTheme.Muted;
+                intervalInput.Focus();
+                intervalInput.Select(0, intervalInput.Text.Length);
+            };
         }
         private void InitializeCulture()
         {
             this.Text = ScreenManagerLang.formConfigureExport_ImageSequence;
+            lblHeading.Text = this.Text;
+            lblQualityHint.Text = ScreenManagerLang.ResourceManager.GetString("FrameExtraction_QualityHint") ?? "Choose PNG for lossless images.";
 
             grpboxConfig.Text = ScreenManagerLang.Generic_Configuration;
             btnOK.Text = ScreenManagerLang.Generic_Save;
@@ -98,15 +107,5 @@ namespace Kinovea.ScreenManager
             lblTotalFrames.Text = string.Format(ScreenManagerLang.dlgRafaleExport_LabelTotalFrames, remainingFrames);
         }
 
-        private void trkDecimate_ValueChanged(object sender, EventArgs e)
-        {
-            // Retained for the designer; exact intervals use intervalInput.
-            UpdateLabels();
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -30,9 +30,9 @@ namespace Kinovea.ScreenManager
         private void InitializeComponent()
         {
       this.pnlViewport = new System.Windows.Forms.Panel();
-      this.grpTracking = new System.Windows.Forms.GroupBox();
-      this.btnTrimTrack = new System.Windows.Forms.Button();
-      this.btnStartStop = new System.Windows.Forms.Button();
+      this.grpTracking = new Kinovea.Services.FluentGroupBox();
+      this.btnTrimTrack = new Kinovea.Services.FluentButton();
+      this.btnStartStop = new Kinovea.Services.FluentButton();
       this.nudUpdateThreshold = new System.Windows.Forms.NumericUpDown();
       this.lblUpdateThreshold = new System.Windows.Forms.Label();
       this.nudMatchTreshold = new System.Windows.Forms.NumericUpDown();

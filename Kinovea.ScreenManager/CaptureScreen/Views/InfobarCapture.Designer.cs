@@ -33,10 +33,10 @@
       this.lblDrops = new System.Windows.Forms.Label();
       this.lblQueue = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.btnSignal = new System.Windows.Forms.Button();
-      this.btnLoad = new System.Windows.Forms.Button();
-      this.btnQueue = new System.Windows.Forms.Button();
-      this.btnDrops = new System.Windows.Forms.Button();
+      this.btnSignal = new Kinovea.Services.FluentButton();
+      this.btnLoad = new Kinovea.Services.FluentButton();
+      this.btnQueue = new Kinovea.Services.FluentButton();
+      this.btnDrops = new Kinovea.Services.FluentButton();
       this.panel1.SuspendLayout();
       this.SuspendLayout();
       // 

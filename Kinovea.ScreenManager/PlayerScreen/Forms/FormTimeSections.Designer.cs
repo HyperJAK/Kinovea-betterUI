@@ -31,8 +31,8 @@
       BrightIdeasSoftware.HeaderStateStyle headerStateStyle1 = new BrightIdeasSoftware.HeaderStateStyle();
       BrightIdeasSoftware.HeaderStateStyle headerStateStyle2 = new BrightIdeasSoftware.HeaderStateStyle();
       BrightIdeasSoftware.HeaderStateStyle headerStateStyle3 = new BrightIdeasSoftware.HeaderStateStyle();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.olvSections = new BrightIdeasSoftware.ObjectListView();
       this.headerFormatStyle1 = new BrightIdeasSoftware.HeaderFormatStyle();
       ((System.ComponentModel.ISupportInitialize)(this.olvSections)).BeginInit();

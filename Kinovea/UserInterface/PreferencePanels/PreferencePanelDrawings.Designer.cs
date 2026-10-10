@@ -48,7 +48,7 @@ namespace Kinovea.Root
 		/// </summary>
 		private void InitializeComponent()
 		{
-      this.tabSubPages = new System.Windows.Forms.TabControl();
+      this.tabSubPages = new Kinovea.Services.FluentTabControl();
       this.tabGeneral = new System.Windows.Forms.TabPage();
       this.chkEnableHSDS = new System.Windows.Forms.CheckBox();
       this.chkCustomToolsDebug = new System.Windows.Forms.CheckBox();
@@ -83,16 +83,16 @@ namespace Kinovea.Root
       this.lblTimeMarkersFormat = new System.Windows.Forms.Label();
       this.tabPresets = new System.Windows.Forms.TabPage();
       this.tabExport = new System.Windows.Forms.TabPage();
-      this.gbSpreadsheet = new System.Windows.Forms.GroupBox();
+      this.gbSpreadsheet = new Kinovea.Services.FluentGroupBox();
       this.lblCSVDelimiter = new System.Windows.Forms.Label();
       this.cmbDelimiter = new System.Windows.Forms.ComboBox();
       this.cmbExportSpace = new System.Windows.Forms.ComboBox();
       this.lblExportSpace = new System.Windows.Forms.Label();
-      this.gbDocuments = new System.Windows.Forms.GroupBox();
+      this.gbDocuments = new Kinovea.Services.FluentGroupBox();
       this.cbExportImagesInDocs = new System.Windows.Forms.CheckBox();
       this.lblPandocPath = new System.Windows.Forms.Label();
       this.tbPandocPath = new System.Windows.Forms.TextBox();
-      this.btnPandocPath = new System.Windows.Forms.Button();
+      this.btnPandocPath = new Kinovea.Services.FluentButton();
       this.tabSubPages.SuspendLayout();
       this.tabGeneral.SuspendLayout();
       this.tabPersistence.SuspendLayout();

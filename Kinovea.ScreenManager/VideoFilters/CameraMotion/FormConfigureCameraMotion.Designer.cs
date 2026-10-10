@@ -29,13 +29,13 @@ namespace Kinovea.ScreenManager
         /// </summary>
         private void InitializeComponent()
         {
-      this.grpConfig = new System.Windows.Forms.GroupBox();
+      this.grpConfig = new Kinovea.Services.FluentGroupBox();
       this.cmbFeatureType = new System.Windows.Forms.ComboBox();
       this.nudFeaturesPerFrame = new System.Windows.Forms.NumericUpDown();
       this.lblFeaturesPerFrame = new System.Windows.Forms.Label();
       this.lblFeatureType = new System.Windows.Forms.Label();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.grpConfig.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudFeaturesPerFrame)).BeginInit();
       this.SuspendLayout();

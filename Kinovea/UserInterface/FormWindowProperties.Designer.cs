@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-      this.grpIdentifier = new System.Windows.Forms.GroupBox();
+      this.grpIdentifier = new Kinovea.Services.FluentGroupBox();
       this.tbName = new System.Windows.Forms.TextBox();
-      this.grpStartup = new System.Windows.Forms.GroupBox();
-      this.grpScreenList = new System.Windows.Forms.GroupBox();
+      this.grpStartup = new Kinovea.Services.FluentGroupBox();
+      this.grpScreenList = new Kinovea.Services.FluentGroupBox();
       this.pnlScreenList = new System.Windows.Forms.Panel();
       this.lblScreen2 = new System.Windows.Forms.Label();
-      this.btnScreen2 = new System.Windows.Forms.Button();
+      this.btnScreen2 = new Kinovea.Services.FluentButton();
       this.lblScreen1 = new System.Windows.Forms.Label();
-      this.btnScreen1 = new System.Windows.Forms.Button();
-      this.btnUseCurrent = new System.Windows.Forms.Button();
+      this.btnScreen1 = new Kinovea.Services.FluentButton();
+      this.btnUseCurrent = new Kinovea.Services.FluentButton();
       this.rbContinue = new System.Windows.Forms.RadioButton();
       this.rbScreenList = new System.Windows.Forms.RadioButton();
       this.rbOpenExplorer = new System.Windows.Forms.RadioButton();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.lblId = new System.Windows.Forms.Label();
       this.grpIdentifier.SuspendLayout();
       this.grpStartup.SuspendLayout();

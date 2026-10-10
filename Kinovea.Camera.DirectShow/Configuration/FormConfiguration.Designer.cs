@@ -48,21 +48,21 @@ namespace Kinovea.Camera.DirectShow
         /// </summary>
         private void InitializeComponent()
         {
-      this.btnDeviceProperties = new System.Windows.Forms.Button();
-      this.btnApply = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnDeviceProperties = new Kinovea.Services.FluentButton();
+      this.btnApply = new Kinovea.Services.FluentButton();
+      this.btnCancel = new Kinovea.Services.FluentButton();
       this.lblStreamFormat = new System.Windows.Forms.Label();
       this.cmbFormat = new System.Windows.Forms.ComboBox();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.groupBox1 = new Kinovea.Services.FluentGroupBox();
       this.lblAuto = new System.Windows.Forms.Label();
       this.cmbImageSize = new System.Windows.Forms.ComboBox();
       this.lblImageSize = new System.Windows.Forms.Label();
       this.cmbFramerate = new System.Windows.Forms.ComboBox();
       this.lblFramerate = new System.Windows.Forms.Label();
-      this.groupBox2 = new System.Windows.Forms.GroupBox();
+      this.groupBox2 = new Kinovea.Services.FluentGroupBox();
       this.tbAlias = new System.Windows.Forms.TextBox();
       this.lblSystemName = new System.Windows.Forms.Label();
-      this.btnIcon = new System.Windows.Forms.Button();
+      this.btnIcon = new Kinovea.Services.FluentButton();
       this.groupBox1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.SuspendLayout();
